@@ -1,24 +1,18 @@
-# client
+# SuperEDT client
 
-## Project setup
-```
+## Install
+
+```bash
 npm install
 ```
 
-### Compiles and hot-reloads for development
-```
+## Run
+
+```bash
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Dependencies
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+This app runs on the following :
+- [Feather icons (vue components)](https://www.npmjs.com/package/vue-feather)
