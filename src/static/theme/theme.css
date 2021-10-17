@@ -1,0 +1,24 @@
+@import './theme-light.css';
+@import './theme-dark.css';
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates&family=Roboto+Slab&display=swap');
+
+:root {
+
+    font-family: "Montserrat Alternates", sans-serif;
+
+    background: var(--background);
+    
+
+    /* Spacing variables */
+
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 32px;
+    --space-5: 48px;
+
+    /* Round edges */
+    --rounding: 8px;
+}

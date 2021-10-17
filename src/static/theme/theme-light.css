@@ -1,0 +1,16 @@
+:root {
+
+    /* Colors */
+    --background: #efefef;
+
+    --black: #222;
+    --white: #fff;
+
+    --accent: orange;
+    
+    --tt-cm: red;
+    --tt-td: green;
+    --tt-tp: blue;
+    --tt-other: gray;
+
+}

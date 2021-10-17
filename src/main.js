@@ -1,10 +1,13 @@
 import Vue from 'vue'
 import App from './App.vue'
+
+// plugins
 import vuetify from './plugins/vuetify'
-import VueFeather from 'vue-feather'
+import './plugins/feather'
+import './plugins/env-read'
+
 
 Vue.config.productionTip = false
-Vue.use(VueFeather)
 
 new Vue({
   vuetify,
