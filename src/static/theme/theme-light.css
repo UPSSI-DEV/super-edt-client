@@ -6,11 +6,13 @@
     --black: #222;
     --white: #fff;
 
-    --accent: orange;
-    
-    --tt-cm: red;
-    --tt-td: green;
-    --tt-tp: blue;
-    --tt-other: gray;
+    --gray: #ddd;
+
+    --tt-cm: #a4243bff;
+    --tt-td: #d8c99bff;
+    --tt-tp: #d8973cff;
+    --tt-proj: #bd632fff;
+    --tt-exam: #273e47ff;
+    --tt-other: #3b5058ff;
 
 }

@@ -1,0 +1,273 @@
+{
+    "S44": {
+        "Mon Oct 25 2021": [
+            {
+                "raw": "**EXAMEN** ELURO5C3 - Outils Mod. Info. - Graphes - F. Bannay - U3-Amphi Daurat",
+                "infos": {
+                    "isExam": true,
+                    "code": "ELURO5C3",
+                    "type": "Exam",
+                    "lesson": "Outils Mod. Info. - Graphes",
+                    "prof": "F. Bannay",
+                    "room": "U3-Amphi Daurat"
+                },
+                "start": "2021-10-25T07:45:00+02:00",
+                "end": "2021-10-25T09:15:00+02:00",
+                "group": "1eA SRI - Communs"
+            },
+            {
+                "raw": "ELURO5C4 (TD) - Prog. Orienté Objet - M.-C. Lagasquie - U3-salle 2",
+                "infos": {
+                    "isExam": false,
+                    "type": "TD",
+                    "lesson": "Prog. Orienté Objet",
+                    "prof": "UPSSI-prof",
+                    "room": "Hors salle"
+                },
+                "start": "2021-10-25T10:00:00+02:00",
+                "end": "2021-10-25T12:00:00+02:00",
+                "group": "1eA SRI"
+            },
+            {
+                "raw": "ELURO5C4 (TP - G1) - Prog. Orienté Objet - M.-C. Lagasquie - U3-salle 206",
+                "infos": {
+                    "isExam": false,
+                    "type": "TP",
+                    "lesson": "Prog. Orienté Objet",
+                    "prof": "UPSSI-prof",
+                    "room": "Hors salle"
+                },
+                "start": "2021-10-25T13:30:00+02:00",
+                "end": "2021-10-25T15:30:00+02:00",
+                "group": "1eA SRI - TP G1"
+            },
+            {
+                "raw": "ELURO5B2 ( C) - Outils Mathématiques - S. Durola - U3-salle 2",
+                "infos": {
+                    "isExam": false,
+                    "code": "ELURO5B2",
+                    "type": "C",
+                    "lesson": "Outils Mathématiques",
+                    "prof": "S. Durola",
+                    "room": "U3-salle 2"
+                },
+                "start": "2021-10-25T15:45:00+02:00",
+                "end": "2021-10-25T17:45:00+02:00",
+                "group": "1eA SRI"
+            }
+        ],
+        "Tue Oct 26 2021": [
+            {
+                "raw": "Projet Fil ROUGE - Xfree - U3-salle 2",
+                "infos": {
+                    "isExam": false,
+                    "type": "Projet",
+                    "lesson": "Projet Fil ROUGE",
+                    "prof": "Xfree",
+                    "room": "U3-salle 2"
+                },
+                "start": "2021-10-26T07:45:00+02:00",
+                "end": "2021-10-26T09:45:00+02:00",
+                "group": "1eA SRI"
+            },
+            {
+                "raw": "ELUMC5B3 (TD) - Physique - Electronique Num. - F. Caignet - U3-salle 2",
+                "infos": {
+                    "isExam": false,
+                    "code": "ELUMC5B3",
+                    "type": "TD",
+                    "lesson": "Physique - Electronique Num.",
+                    "prof": "F. Caignet",
+                    "room": "U3-salle 2"
+                },
+                "start": "2021-10-26T10:00:00+02:00",
+                "end": "2021-10-26T12:00:00+02:00",
+                "group": "1eA SRI"
+            },
+            {
+                "raw": "ELUMC5A4 ( C) - EGE - Economie - K. Bravo - U3-Amphi Daurat",
+                "infos": {
+                    "isExam": false,
+                    "code": "ELUMC5A4",
+                    "type": "C",
+                    "lesson": "EGE - Economie",
+                    "prof": "K. Bravo",
+                    "room": "U3-Amphi Daurat"
+                },
+                "start": "2021-10-26T13:30:00+02:00",
+                "end": "2021-10-26T15:30:00+02:00",
+                "group": "1eA SRI - Communs"
+            },
+            {
+                "raw": "ELURO5C1 ( C) - Modélisation et commande de système 1 - AUTOMATIQUE - V. Cadenat - U3-salle 2",
+                "infos": {
+                    "isExam": false,
+                    "code": "ELURO5C1",
+                    "type": "C",
+                    "lesson": "Modélisation et commande de système 1 - AUTOMATIQUE",
+                    "prof": "V. Cadenat",
+                    "room": "U3-salle 2"
+                },
+                "start": "2021-10-26T15:45:00+02:00",
+                "end": "2021-10-26T17:45:00+02:00",
+                "group": "1eA SRI"
+            }
+        ],
+        "Wed Oct 27 2021": [
+            {
+                "raw": "ELURO5B2 ( C) - Outils Mathématiques - S. Durola - U3-salle 2",
+                "infos": {
+                    "isExam": false,
+                    "code": "ELURO5B2",
+                    "type": "C",
+                    "lesson": "Outils Mathématiques",
+                    "prof": "S. Durola",
+                    "room": "U3-salle 2"
+                },
+                "start": "2021-10-27T07:45:00+02:00",
+                "end": "2021-10-27T09:45:00+02:00",
+                "group": "1eA SRI"
+            },
+            {
+                "raw": "ELURO5C1 ( C) - Modélisation et commande de système 1 - AUTOMATIQUE - V. Cadenat - U3-salle 2",
+                "infos": {
+                    "isExam": false,
+                    "code": "ELURO5C1",
+                    "type": "C",
+                    "lesson": "Modélisation et commande de système 1 - AUTOMATIQUE",
+                    "prof": "V. Cadenat",
+                    "room": "U3-salle 2"
+                },
+                "start": "2021-10-27T10:00:00+02:00",
+                "end": "2021-10-27T12:00:00+02:00",
+                "group": "1eA SRI"
+            },
+            {
+                "raw": "ELURO5C4 (TD) - Prog. Orienté Objet - N. Schmidt - U3-salle 2",
+                "infos": {
+                    "isExam": false,
+                    "code": "ELURO5C4",
+                    "type": "TD",
+                    "lesson": "Prog. Orienté Objet",
+                    "prof": "N. Schmidt",
+                    "room": "U3-salle 2"
+                },
+                "start": "2021-10-27T13:30:00+02:00",
+                "end": "2021-10-27T15:30:00+02:00",
+                "group": "1eA SRI"
+            },
+            {
+                "raw": "ELUMC5A4 (TD) - EGE - Gestion - M.-A. Verdier - U3-salle 2",
+                "infos": {
+                    "isExam": false,
+                    "type": "TD",
+                    "lesson": "EGE - Gestion",
+                    "prof": "UPSSI-prof",
+                    "room": "Hors salle"
+                },
+                "start": "2021-10-27T15:45:00+02:00",
+                "end": "2021-10-27T17:45:00+02:00",
+                "group": "1eA SRI"
+            }
+        ],
+        "Thu Oct 28 2021": [
+            {
+                "raw": "ELUMC5A1 - Anglais G1 - N. Scicluna - Bât 4A-salle K08 ",
+                "infos": {
+                    "isExam": false,
+                    "code": "ELUMC5A1",
+                    "type": "TP",
+                    "lesson": "Anglais",
+                    "prof": "N. Scicluna",
+                    "room": "Bât 4A-salle K08 "
+                },
+                "start": "2021-10-28T07:45:00+02:00",
+                "end": "2021-10-28T09:45:00+02:00",
+                "group": "1eA SRI - TP G1"
+            },
+            {
+                "raw": "ELUMC5B1 (TP - G1) - Informatique - I. Ferrané - U3-salle 207",
+                "infos": {
+                    "isExam": false,
+                    "code": "ELUMC5B1",
+                    "type": "TP",
+                    "lesson": "Informatique",
+                    "prof": "I. Ferrané",
+                    "room": "U3-salle 207"
+                },
+                "start": "2021-10-28T10:00:00+02:00",
+                "end": "2021-10-28T12:00:00+02:00",
+                "group": "1eA SRI - TP G1"
+            },
+            {
+                "raw": "\"UPSSITECH'Day\" - Conférence",
+                "infos": {
+                    "isExam": false,
+                    "type": "Autre",
+                    "lesson": "\"UPSSITECH'Day\" - Conférence",
+                    "prof": "UPSSI-prof",
+                    "room": "Hors salle"
+                },
+                "start": "2021-10-28T14:00:00+02:00",
+                "end": "2021-10-28T17:00:00+02:00",
+                "group": "1eA SRI - Communs"
+            }
+        ],
+        "Fri Oct 29 2021": [
+            {
+                "raw": "Projet Fil Rouge - Xfree -U3-Salle 2",
+                "infos": {
+                    "isExam": false,
+                    "type": "Projet",
+                    "lesson": "Projet Fil ROUGE",
+                    "prof": "UPSSI-prof",
+                    "room": "Hors salle"
+                },
+                "start": "2021-10-29T07:45:00+02:00",
+                "end": "2021-10-29T09:45:00+02:00",
+                "group": "1eA SRI"
+            },
+            {
+                "raw": "ELUMC5A2 - EPS",
+                "infos": {
+                    "isExam": false,
+                    "type": "Autre",
+                    "lesson": "ELUMC5A2 - EPS",
+                    "prof": "UPSSI-prof",
+                    "room": "Hors salle"
+                },
+                "start": "2021-10-29T10:00:00+02:00",
+                "end": "2021-10-29T12:00:00+02:00",
+                "group": "1eA SRI - Communs"
+            },
+            {
+                "raw": "ELURO5B1 (TD) - Projet SRI 1 : Fil Rouge Phase 1 - J. Vanderstraeten - U3-salle 2",
+                "infos": {
+                    "isExam": false,
+                    "code": "ELURO5B1",
+                    "type": "Projet",
+                    "lesson": "Projet Fil ROUGE",
+                    "prof": "J. Vanderstraeten",
+                    "room": "U3-salle 2"
+                },
+                "start": "2021-10-29T13:30:00+02:00",
+                "end": "2021-10-29T15:30:00+02:00",
+                "group": "1eA SRI"
+            },
+            {
+                "raw": "ELUMC5A3 (TD) - SHS - G. Estadieu - U3-salle 2",
+                "infos": {
+                    "isExam": false,
+                    "code": "ELUMC5A3",
+                    "type": "TD",
+                    "lesson": "SHS",
+                    "prof": "G. Estadieu",
+                    "room": "U3-salle 2"
+                },
+                "start": "2021-10-29T15:45:00+02:00",
+                "end": "2021-10-29T17:45:00+02:00",
+                "group": "1eA SRI"
+            }
+        ]
+    }
+}
