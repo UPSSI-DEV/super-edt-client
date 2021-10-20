@@ -55,7 +55,7 @@ html {
 
 body {
   margin: 0;
-  width: 100%;
+  width: 100vw;
   min-height: 100%;
   overflow-x: hidden;
 
@@ -74,6 +74,8 @@ body {
 .main-content {
   padding: var(--space-2);
   box-sizing: border-box;
+
+  width: 100vw;
   height: 100%;
   
   display: grid;

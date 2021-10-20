@@ -37,7 +37,8 @@ export default {
 <style scoped>
 
   .time-table {
-    width: 95%;
+    width: 100%;
+    box-sizing: border-box;
     max-width: 1400px;
     margin: 0 auto;
   }
@@ -53,6 +54,19 @@ export default {
     gap: var(--space-2);
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 3fr 3fr 1fr 3fr 3fr;
+
+  }
+
+  @media only screen and (max-device-width: 480px) {
+
+    .time-table {
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+    .time-table .title {
+      margin-top: var(--space-2);
+    }
 
   }
 
