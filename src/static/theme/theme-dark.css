@@ -1,3 +1,21 @@
-:root {
-    
+:root.dark-theme {
+    /* Colors */
+    --background: #424242;
+
+    --super-nav: #6d6c6c;
+    --super-nav-mobile: #6d6c6c;
+
+    --word: #fff;
+
+    --black: #222;
+    --white: #fff;
+
+    --gray: #ddd;
+
+    --tt-cm: #a4243bff;
+    --tt-td: #d8c99bff;
+    --tt-tp: #d8973cff;
+    --tt-proj: #bd632fff;
+    --tt-exam: #273e47ff;
+    --tt-other: #3b5058ff;
 }

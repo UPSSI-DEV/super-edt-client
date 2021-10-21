@@ -1,7 +1,11 @@
 :root {
-
     /* Colors */
     --background: #efefef;
+
+    --super-nav: #fff;
+    --super-nav-mobile: #fff;
+
+    --word: #222;
 
     --black: #222;
     --white: #fff;
@@ -14,5 +18,4 @@
     --tt-proj: #bd632fff;
     --tt-exam: #273e47ff;
     --tt-other: #3b5058ff;
-
 }

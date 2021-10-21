@@ -46,6 +46,7 @@ export default {
   .time-table .title {
     text-align: center;
     margin-bottom: var(--space-4);
+    color: var(--word);
   }
 
   .time-table .elements {
