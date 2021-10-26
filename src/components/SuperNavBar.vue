@@ -3,16 +3,17 @@
         <h2 class="title">SuperEDT</h2>
         <feather class="menu" type="menu" @click="menuOpen = !menuOpen" />
         <nav :class="{ show: menuOpen }">
-            <feather class="icon-sun" type="sun" v-if="userTheme == 'dark-theme'" @click="toggleTheme" />
-            <feather class="icon-moon" type="moon" v-else @click="toggleTheme" />
             <router-link to="/">
                 <feather type="clock" />
-                <span>Dashboard</span>
+                <span>Ma journée</span>
             </router-link>
             <router-link to="/week">
                 <feather type="calendar" />
                 <span>Ma semaine</span>
             </router-link>
+            <div class="icon-wrapper">
+                <feather class="icon" :class="iconColor" :type="icon" @click="toggleTheme" />
+            </div>
         </nav>
     </header>
 </template>
@@ -30,13 +31,34 @@ export default {
     mounted() {
         const initUserTheme = this.getMediaPreference();
         this.setTheme(initUserTheme);
+
+        const navMenu = document.querySelector('.super-nav-bar nav')
+        const navBurger = document.querySelector('.super-nav-bar .menu')
+        document.addEventListener('click', e => {
+            if(!(e.target == navMenu || navMenu.contains(e.target) || e.target == navBurger || navBurger.contains(e.target))) {
+                this.menuOpen = false
+            }
+        })
+    },
+
+    computed: {
+        icon() {
+            return (this.userTheme == 'dark-theme') ? 'sun' : 'moon'
+        },
+
+        iconColor() {
+            return (this.userTheme == 'dark-theme') ? 'day' : 'night'
+        },
+
+        iconTheme() {
+            return (this.userTheme == 'dark-theme') ? 'clair' : 'sombre'
+        }
     },
 
     methods: {
         // Set your value and localStorage theme
         setTheme(theme) {
             localStorage.setItem("user-theme", theme);
-            console.log(this.userTheme);
             this.userTheme = theme;
             document.documentElement.className = theme;
         },
@@ -58,13 +80,14 @@ export default {
                 return "light-theme";
             }
         },
-    },
+    }
 };
 </script>
 
 <style>
 header.super-nav-bar {
     width: 100%;
+    color: var(--word);
     background-color: var(--super-nav);
 
     padding: var(--space-2);
@@ -83,10 +106,12 @@ header.super-nav-bar nav {
     display: flex;
     align-items: center;
     gap: var(--space-2);
+
+    z-index: 8888;
 }
 
 header.super-nav-bar nav > * {
-    color: var(--black);
+    color: var(--word);
     text-decoration: none;
 
     display: flex;
@@ -98,6 +123,43 @@ header.super-nav-bar .menu {
     display: none;
 }
 
+.super-nav-bar nav .icon-wrapper {
+    padding-left: var(--space-2);
+    position: relative;
+}
+
+.super-nav-bar nav .icon-wrapper::before {
+    content: '';
+    padding: 1px;
+
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: auto;
+
+    background-color: var(--word);
+    border-radius: 4px;
+}
+
+.super-nav-bar nav .icon:hover {
+    animation: spin 500ms ease-in-out forwards;
+}
+
+.super-nav-bar nav .icon-wrapper .icon-desc {
+    display: none;
+}
+
+@keyframes spin {
+    0%   { transform: rotate(  0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.super-nav-bar nav .icon.day {
+    background-color: yellow !important;
+}
+
+.super-nav-bar nav .icon.night {
+    background-color: purple;
+}
+
 @media only screen and (max-device-width: 480px) {
     header.super-nav-bar .menu {
         display: block;
@@ -107,9 +169,7 @@ header.super-nav-bar .menu {
     header.super-nav-bar nav {
         display: block;
         position: fixed;
-        top: 0;
-        bottom: 0;
-        right: 0;
+        top: 0; bottom: 0;right: 0;
         background-color: var(--super-nav-mobile);
         padding-top: calc(2 * var(--space-4));
 
@@ -130,21 +190,25 @@ header.super-nav-bar .menu {
     header.super-nav-bar nav.show {
         transform: translateX(0%);
     }
-}
 
-.icon-moon {
-    transition: transform 0.7s ease-in-out;
-    color: blueviolet; /* NOT WORKING BUT OF THE LINE AU DESSUS */
-}
-.icon-sun {
-    transition: transform 1.2s ease-in-out;
-    color: yellow; /* NOT WORKING BUT OF THE LINE AU DESSUS */
-}
+    .router-link-exact-active {
+        background-color: var(--) !important;
+    }
 
-.icon-sun:hover {
-    transform: rotate(90deg);
-}
-.icon-moon:hover {
-    transform: rotate(50deg);
+    .super-nav-bar nav .icon-wrapper {
+        margin-top: var(--space-2);
+        padding: var(--space-4);
+        width: 100%;
+        
+        display: grid;
+        place-items: center;
+    }
+
+    .super-nav-bar nav .icon-wrapper::before {
+        top: 0; bottom: auto;
+        left: 0; right: 0;
+
+        margin: 0 var(--space-2);
+    }
 }
 </style>

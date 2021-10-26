@@ -1,9 +1,9 @@
 :root.dark-theme {
     /* Colors */
-    --background: #424242;
+    --background: #141414;
 
-    --super-nav: #6d6c6c;
-    --super-nav-mobile: #6d6c6c;
+    --super-nav: #222;
+    --super-nav-mobile: #424242;
 
     --word: #fff;
 
