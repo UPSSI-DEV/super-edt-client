@@ -9,6 +9,7 @@ import router from './plugins/router'
 import './plugins/feather'
 import './plugins/env-read'
 import './plugins/cookies'
+import './registerServiceWorker'
 
 
 Vue.config.productionTip = false
