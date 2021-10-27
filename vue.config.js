@@ -4,7 +4,7 @@ module.exports = {
   ],
 
   pwa: {
-    name: 'SuperEDT',
+    name: 'Super EDT',
     themeColor: '#F5A623'
   }
 }
