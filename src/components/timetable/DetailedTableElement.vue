@@ -1,6 +1,10 @@
 <template>
   <table-element :event="event" class="detailed-el" :class="isCurrent">
-      <p>{{ times }}</p>
+      <div class="extra">
+        <p><feather size="16px" type="map-pin"></feather><span>{{ event.infos.room }}</span></p>
+        <p><feather size="16px" type="clock"></feather><span>{{ times }}</span></p>
+      </div>
+     
       <div class="sidebar">
         <feather type="chevron-right" />
       </div>
@@ -40,6 +44,13 @@ export default {
 </script>
 
 <style scoped>
+  .extra > * {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    margin-top: var(--space-1);
+  }
+
   .detailed-el.current {
     position: relative;
     padding-left: calc(10% + var(--space-2));
