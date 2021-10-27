@@ -45,3 +45,7 @@ Whilst vuetify is installed, try to keep its use to a minimum in order to stay c
 ## CSS theme
 
 Some variables are defined in the `/static/theme/` folder to allow for streamlined styles. We will eventually add a theme selection system so more files will be created to contain theme specific colors.
+
+## Favicons
+
+[Real Favicon Generators](https://realfavicongenerator.net/favicon_result?file_id=p1fj1hi2c7qqpqt16hn1c1oup56) - These guys are great !!!
