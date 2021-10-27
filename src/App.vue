@@ -54,7 +54,7 @@ html {
 }
 
 body {
-  margin: 0;
+  margin: 0; 
   width: 100vw;
   min-height: 100%;
   overflow-x: hidden;

@@ -50,7 +50,7 @@ export default {
   }
 
   .time-table .elements {
-    overflow-x: scroll;
+    overflow-x: auto;
     display: grid;
     gap: var(--space-2);
     grid-template-columns: repeat(5, 1fr);
