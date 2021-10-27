@@ -29,7 +29,7 @@ export default {
     },
 
     mounted() {
-        const initUserTheme = this.getMediaPreference();
+        const initUserTheme = this.getUserTheme();
         this.setTheme(initUserTheme);
 
         const navMenu = document.querySelector('.super-nav-bar nav')
@@ -58,27 +58,24 @@ export default {
     methods: {
         // Set your value and localStorage theme
         setTheme(theme) {
-            localStorage.setItem("user-theme", theme);
             this.userTheme = theme;
+            this.$cookies.set('theme', theme);
             document.documentElement.className = theme;
         },
         // Change the theme of your page
         toggleTheme() {
-            const activeTheme = localStorage.getItem("user-theme");
-            if (activeTheme === "light-theme") {
-                this.setTheme("dark-theme");
-            } else {
-                this.setTheme("light-theme");
-            }
+            const newTheme = (this.userTheme === "light-theme") ? "dark-theme" : "light-theme"
+            this.setTheme(newTheme)
         },
         // Get your preference webrowser
-        getMediaPreference() {
-            const hasDarkPreference = window.matchMedia("(prefers-color-scheme: dark)").matches;
-            if (hasDarkPreference) {
-                return "dark-theme";
-            } else {
-                return "light-theme";
+        getUserTheme() {
+            // If first visit
+            if(!this.$cookies.isKey('theme')) {
+                const hasDarkPreference = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                const theme = (hasDarkPreference) ? "dark-theme" : "light-theme"
+                this.$cookies.set('theme', theme)
             }
+            return this.$cookies.get('theme')
         },
     }
 };
