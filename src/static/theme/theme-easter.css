@@ -1,21 +1,21 @@
 :root.easter-theme {
-    /* Colors */
-    --background: #b46df6;
+  /* Colors */
+  --background: #b46df6;
 
-    --super-nav: #222;
-    --super-nav-mobile: #424242;
+  --super-nav: #943ce7;
+  --super-nav-mobile: #943ce7;
 
-    --word: #222;
+  --word: #ffffff;
 
-    --black: #222;
-    --white: #fff;
+  --black: #222;
+  --white: #fff;
 
-    --gray: #ddd;
+  --gray: #ddd;
 
-    --tt-cm: #a4243bff;
-    --tt-td: #d8c99bff;
-    --tt-tp: #d8973cff;
-    --tt-proj: #bd632fff;
-    --tt-exam: #273e47ff;
-    --tt-other: #3b5058ff;
+  --tt-cm: rgb(90, 0, 150);
+  --tt-td: #d8c99bff;
+  --tt-tp: rgb(103, 5, 122);
+  --tt-proj: #bd632fff;
+  --tt-exam: #273e47ff;
+  --tt-other: rgb(204, 2, 255);
 }

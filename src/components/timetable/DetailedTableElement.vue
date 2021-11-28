@@ -1,9 +1,9 @@
 <template>
   <table-element :event="event" class="detailed-el" :class="isCurrent">
-      <div class="extra">
+      <!-- <div class="extra">
         <p><feather size="16px" type="map-pin"></feather><span>{{ event.infos.room }}</span></p>
         <p><feather size="16px" type="clock"></feather><span>{{ times }}</span></p>
-      </div>
+      </div> -->
      
       <div class="sidebar">
         <feather type="chevron-right" />
@@ -21,14 +21,14 @@ export default {
     props: [ 'event' ],
 
     computed: {
-      times: function() {
+      /* times: function() {
         const getTime = timestamp => {
           const date = new Date(timestamp)
           const addOs = num => (num < 10) ? '0' + num : num
           return `${addOs(date.getHours())}h${addOs(date.getMinutes())}`
         }
         return `${getTime(this.event.start)} - ${getTime(this.event.end)}`
-      },
+      }, */
 
       isCurrent() {
         const now = new Date()
@@ -44,12 +44,12 @@ export default {
 </script>
 
 <style scoped>
-  .extra > * {
+  /* .extra > * {
     display: flex;
     align-items: center;
     gap: var(--space-1);
     margin-top: var(--space-1);
-  }
+  } */
 
   .detailed-el.current {
     position: relative;

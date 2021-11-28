@@ -11,6 +11,12 @@
             @touchcancel="stop"
         >
             SuperEDT
+            <img
+                src="./uwu.png"
+                v-if="userTheme == 'easter-theme'"
+                alt=""
+                style="height: 30px; padding-left: 20px"
+            />
         </h2>
         <feather class="menu" type="menu" @click="menuOpen = !menuOpen" />
         <nav :class="{ show: menuOpen }">
@@ -49,7 +55,14 @@ export default {
         const navMenu = document.querySelector(".super-nav-bar nav");
         const navBurger = document.querySelector(".super-nav-bar .menu");
         document.addEventListener("click", (e) => {
-            if (!(e.target == navMenu || navMenu.contains(e.target) || e.target == navBurger || navBurger.contains(e.target))) {
+            if (
+                !(
+                    e.target == navMenu ||
+                    navMenu.contains(e.target) ||
+                    e.target == navBurger ||
+                    navBurger.contains(e.target)
+                )
+            ) {
                 this.menuOpen = false;
             }
         });
@@ -84,7 +97,10 @@ export default {
         // Change the theme of your page
         toggleTheme() {
             if (this.easterTheme == false) {
-                this.userTheme = this.userTheme === "light-theme" ? "dark-theme" : "light-theme";
+                this.userTheme =
+                    this.userTheme === "light-theme"
+                        ? "dark-theme"
+                        : "light-theme";
             } else {
                 if (this.userTheme == "dark-theme") {
                     this.userTheme = "light-theme";
@@ -102,7 +118,9 @@ export default {
         getUserTheme() {
             // If first visit
             if (!this.$cookies.isKey("theme")) {
-                const hasDarkPreference = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                const hasDarkPreference = window.matchMedia(
+                    "(prefers-color-scheme: dark)"
+                ).matches;
                 const theme = hasDarkPreference ? "dark-theme" : "light-theme";
                 this.$cookies.set("theme", theme);
             }
