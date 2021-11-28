@@ -1,22 +1,12 @@
 <template>
     <header class="super-nav-bar">
-        <h2
-            class="title"
-            :class="{ active: interval }"
-            @mousedown="start"
-            @mouseleave="stop"
-            @mouseup="stop"
-            @touchstart="start"
-            @touchend="stop"
-            @touchcancel="stop"
-        >
-            SuperEDT
-            <img
-                src="./uwu.png"
-                v-if="userTheme == 'easter-theme'"
-                alt=""
-                style="height: 30px; padding-left: 20px"
-            />
+        <h2 class="title" :class="{ active: interval }" @mousedown="start" @mouseleave="stop" @mouseup="stop" @touchstart="start" @touchend="stop" @touchcancel="stop">
+            <span v-if="userTheme != 'easter-theme'">SuperEDT</span>
+            <span v-else>
+                S
+                <img src="@/static/uwu.png" alt="" style="height: 30px" />
+                perEDT
+            </span>
         </h2>
         <feather class="menu" type="menu" @click="menuOpen = !menuOpen" />
         <nav :class="{ show: menuOpen }">
@@ -44,7 +34,7 @@ export default {
             userTheme: "light-theme",
             interval: false,
             count: 0,
-            easterTheme: false,
+            easterTheme: false
         };
     },
 
@@ -54,15 +44,8 @@ export default {
 
         const navMenu = document.querySelector(".super-nav-bar nav");
         const navBurger = document.querySelector(".super-nav-bar .menu");
-        document.addEventListener("click", (e) => {
-            if (
-                !(
-                    e.target == navMenu ||
-                    navMenu.contains(e.target) ||
-                    e.target == navBurger ||
-                    navBurger.contains(e.target)
-                )
-            ) {
+        document.addEventListener("click", e => {
+            if (!(e.target == navMenu || navMenu.contains(e.target) || e.target == navBurger || navBurger.contains(e.target))) {
                 this.menuOpen = false;
             }
         });
@@ -82,7 +65,7 @@ export default {
                 }
             }
             return "";
-        },
+        }
     },
 
     methods: {
@@ -97,10 +80,7 @@ export default {
         // Change the theme of your page
         toggleTheme() {
             if (this.easterTheme == false) {
-                this.userTheme =
-                    this.userTheme === "light-theme"
-                        ? "dark-theme"
-                        : "light-theme";
+                this.userTheme = this.userTheme === "light-theme" ? "dark-theme" : "light-theme";
             } else {
                 if (this.userTheme == "dark-theme") {
                     this.userTheme = "light-theme";
@@ -118,9 +98,7 @@ export default {
         getUserTheme() {
             // If first visit
             if (!this.$cookies.isKey("theme")) {
-                const hasDarkPreference = window.matchMedia(
-                    "(prefers-color-scheme: dark)"
-                ).matches;
+                const hasDarkPreference = window.matchMedia("(prefers-color-scheme: dark)").matches;
                 const theme = hasDarkPreference ? "dark-theme" : "light-theme";
                 this.$cookies.set("theme", theme);
             }
@@ -139,8 +117,8 @@ export default {
                 this.easterTheme = true;
             }
             this.count = 0;
-        },
-    },
+        }
+    }
 };
 </script>
 
@@ -168,6 +146,10 @@ header.super-nav-bar nav {
     gap: var(--space-2);
 
     z-index: 8888;
+}
+
+.super-nav-bar h2 * {
+    vertical-align: middle;
 }
 
 header.super-nav-bar nav > * {
@@ -227,6 +209,12 @@ header.super-nav-bar .menu {
     background-color: purple;
 }
 
+.super-nav-bar nav .router-link-exact-active {
+    padding-top: 6px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid var(--word);
+}
+
 @media only screen and (max-device-width: 480px) {
     header.super-nav-bar .menu {
         display: block;
@@ -280,6 +268,12 @@ header.super-nav-bar .menu {
         right: 0;
 
         margin: 0 var(--space-2);
+    }
+
+    .super-nav-bar nav .router-link-exact-active {
+        padding: var(--space-2) var(--space-4);
+        border: none;
+        background-color: var(--super-nav-selected);
     }
 }
 </style>
