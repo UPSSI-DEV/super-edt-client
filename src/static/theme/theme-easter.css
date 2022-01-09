@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap");
+
+:root.easter-theme {
+    /* Fonts !!! */
+    font-family: "Caveat", cursive;
+    font-size: 14pt;
+
+    /* Colors */
+    --background: #b46df6;
+
+    --super-nav: #943ce7;
+    --super-nav-mobile: #943ce7;
+    --super-nav-selected: #7511d3;
+
+    --word: #ffffff;
+
+    --black: #222;
+    --white: #fff;
+
+    --gray: #ddd;
+
+    --tt-cm: rgb(90, 0, 150);
+    --tt-td: rgb(239, 177, 255);
+    --tt-tp: rgb(103, 5, 122);
+    --tt-proj: #d199f1;
+    --tt-exam: rgb(90, 0, 150);
+    --tt-other: rgb(204, 2, 255);
+}
