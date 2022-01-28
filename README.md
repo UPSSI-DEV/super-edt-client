@@ -1,51 +1,24 @@
-# SuperEDT client
+# client
 
-## Install
-
-```bash
+## Project setup
+```
 npm install
 ```
 
-## Run
-
-```bash
+### Compiles and hot-reloads for development
+```
 npm run serve
 ```
 
----
-
-## Environment variable reading
-
-To access environment variables use:
-```js
-this.$env('VARIABLE_NAME')
+### Compiles and minifies for production
+```
+npm run build
 ```
 
-In the `.env` file name the variable in the following way:
+### Lints and fixes files
 ```
-VUE_APP_VARIABLE_NAME = VALUE
-```
-
-**Important !** keep API keys in `.env.local` files so that they won't be uploaded to github !!!
-
-## Feather icons
-
-This app uses [Feather icons (vue components)](https://www.npmjs.com/package/vue-feather). They are used in the following way :
-
-```html
-<feather type="icon-name" />
+npm run lint
 ```
 
-You can find the icon names on the [official website](https://feathericons.com/).
-
-## Vuetify
-
-Whilst vuetify is installed, try to keep its use to a minimum in order to stay coherent with the website's theme
-
-## CSS theme
-
-Some variables are defined in the `/static/theme/` folder to allow for streamlined styles. We will eventually add a theme selection system so more files will be created to contain theme specific colors.
-
-## Favicons
-
-[Real Favicon Generators](https://realfavicongenerator.net/favicon_result?file_id=p1fj1hi2c7qqpqt16hn1c1oup56) - These guys are great !!!
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
