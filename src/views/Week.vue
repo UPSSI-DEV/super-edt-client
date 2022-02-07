@@ -1,40 +1,41 @@
 <template>
   <div>
-    <Event v-if="nextEvent" :name="nextEvent.name" :type="nextEvent.type" class="mb-6" />
+    <Event v-if="nextEvent" :event="nextEvent" class="mb-6" />
 
     <div v-for="day in week" :key="day.day" class="flex flex-col gap-2 mb-5">
       <h3 class="text-left">{{ date(day.day) }}</h3>
-      <Event v-for="ev in day.events" :key="ev.name" :name="ev.name" :type="ev.type" />
+      <Event v-for="ev in day.events" :key="ev.name" :event="ev" />
     </div>
   </div>
 </template>
 
-<script>
-import Event from '@/components/Event.vue'
-import { getWeek, getNextLesson } from "@/api"
+<script lang="ts">
+import Vue from "vue";
+import Event from "@/components/Event.vue";
+import { Week, CalEvent, getWeek, getNextLesson } from "@/api";
 
-import moment from "moment"
+import moment from "moment";
 
-export default {
+export default Vue.extend({
   components: { Event },
-  name: 'Week',
+  name: "Week",
 
   data() {
     return {
-      week: [],
-      nextEvent: null
-    }
+      week: [] as Week[],
+      nextEvent: {} as CalEvent,
+    };
   },
 
   methods: {
-    date(datestring) {
+    date(datestring: string) {
       return moment(datestring, "DD-MM-YYYY").format("dd Do MMMM");
-    }
+    },
   },
 
   async created() {
     this.week = await getWeek();
     this.nextEvent = await getNextLesson();
-  }
-}
+  },
+});
 </script>

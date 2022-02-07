@@ -4,19 +4,28 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import NavItem from '@/components/nav/NavItem.vue'
+
+type NavData = {
+  name: string;
+  route: string;
+  icon: string;
+}
+
+const data : NavData[] = [
+  {name: "Week",      route: "week",      icon: "calendar"  },
+  {name: "Modules",   route: "modules",   icon: "book"      },
+  {name: "Tests",     route: "tests",     icon: "percent"   },
+  {name: "Settings",  route: "settings",  icon: "settings"  }
+]
+
 export default {
   components: { NavItem },
 
   data() {
     return {
-      items: [
-        {name: "Week",      route: "week",      icon: "calendar"  },
-        {name: "Modules",   route: "modules",   icon: "book"      },
-        {name: "Tests",     route: "tests",     icon: "percent"   },
-        {name: "Settings",  route: "settings",  icon: "settings"  }
-      ]
+      items: data as NavData[]
     }
   }
 
