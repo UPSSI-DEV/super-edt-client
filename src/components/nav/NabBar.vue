@@ -1,11 +1,11 @@
 <template>
-  <div class="nav-bar">
+  <div class="grid grid-cols-4 nav-bar p-3 gap-1">
     <NavItem v-for="item in items" :key="item.route" :name="item.name" :route="item.route" :icon="item.icon" />
   </div>
 </template>
 
 <script>
-import NavItem from './NavItem.vue'
+import NavItem from '@/components/nav/NavItem.vue'
 export default {
   components: { NavItem },
 
@@ -24,8 +24,5 @@ export default {
 </script>
 
 <style>
-.nav-bar {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-}
+
 </style>

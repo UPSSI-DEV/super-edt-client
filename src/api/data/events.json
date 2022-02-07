@@ -1,0 +1,33 @@
+{
+    "07-02-2022": [
+        {"name": "Projet Fil ROUGE", "type": "other"},
+        {"name": "Réunion d'information", "type": "other"},
+        {"name": "Intro SRI - Robotique", "type": "cm"},
+        {"name": "Communications des Systèmes", "type": "td"},
+        {"name": "LV2 Japonais", "type": "other"}
+    ],
+
+    "08-02-2022": [
+        {"name": "Projet Fil ROUGE", "type": "other"},
+        {"name": "Conception Orientée Objet", "type": "cm"},
+        {"name": "Gestion de projet", "type": "cm"},
+        {"name": "SHS", "type": "td"}
+    ],
+
+    "09-02-2022": [
+        {"name": "Intro SRI - Son", "type": "tp"},
+        {"name": "Traitement de Signal", "type": "cm"},
+        {"name": "Intro SRI - Image", "type": "tp"}
+    ],
+
+    "10-02-2022": [
+        {"name": "Conception Orientée Objet", "type": "tp"},
+        {"name": "LV1 Anglais", "type": "td"}
+    ],
+
+    "11-02-2022": [
+        {"name": "Projet SRI 2 - Fil Rouge Phase 2 : Analyse Risque", "type": "other"},
+        {"name": "EPS", "type": "other"},
+        {"name": "Informatique Industrielle", "type": "tp"}
+    ]
+}

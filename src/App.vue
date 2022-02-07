@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <router-view class="p-3 overflow-y-scroll"></router-view>
     <NavBar />
   </div>
 </template>
 
 <script>
-import NavBar from "@/components/NabBar.vue"
+import NavBar from "@/components/nav/NabBar.vue"
 
 export default {
   components: { NavBar }
@@ -21,12 +21,6 @@ html, body, #app {
 }
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-
   display: grid;
   grid-template-rows: 1fr auto;
 }
