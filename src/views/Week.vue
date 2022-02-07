@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Event v-if="nextEvent" :event="nextEvent" class="mb-6" />
+    <!--Event v-if="nextEvent" :event="nextEvent" class="mb-6" /-->
 
     <div v-for="day in week" :key="day.day" class="flex flex-col gap-2 mb-5">
       <h3 class="text-left">{{ date(day.day) }}</h3>
@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import Event from "@/components/Event.vue";
+import Event from "@/components/events/Event.vue";
 import { Week, CalEvent, getWeek, getNextLesson } from "@/api";
 
 import moment from "moment";

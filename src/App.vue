@@ -5,17 +5,19 @@
   </div>
 </template>
 
-<script>
-import NavBar from "@/components/nav/NabBar.vue"
+<script lang="ts">
+import Vue from "vue";
+import NavBar from "@/components/nav/NabBar.vue";
 
-export default {
-  components: { NavBar }
-}
+export default Vue.extend({
+  components: { NavBar },
+});
 </script>
 
-
 <style>
-html, body, #app {
+html,
+body,
+#app {
   height: 100%;
   margin: 0;
 }
