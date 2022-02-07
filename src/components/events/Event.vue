@@ -2,7 +2,7 @@
   <div
     class="p-3 w-full text-left text-white font-mono rounded-md"
     :class="background"
-    @click="showDetails = !showDetails"
+    @click="setCurrent()"
   >
     <h3>{{ event.name }}</h3>
     <EventDetail icon="clock" :desc="time" :class="{ 'mt-2': showDetails }" />
@@ -18,6 +18,7 @@ import Vue from "vue";
 import { CalEvent } from "@/api";
 import moment from "moment";
 import EventDetail from "./EventDetail.vue";
+import { v4 as unique_id } from "uuid";
 
 type IHash = {
   [details: string]: string;
@@ -34,13 +35,26 @@ export default Vue.extend({
 
   data() {
     return {
-      showDetails: false as boolean,
+      id: unique_id() as string,
     };
   },
+
+  methods: {
+    setCurrent() {
+      const commitData =
+        this.$store.getters.curEvent == this.id ? null : this.id;
+      this.$store.commit("setCurrent", commitData);
+    },
+  },
+
   computed: {
     time(): string {
       const hm = (x: Date) => moment(x).format("HH:mm");
       return `${hm(this.event.time.start)} - ${hm(this.event.time.end)}`;
+    },
+
+    showDetails(): boolean {
+      return this.$store.getters.curEvent == this.id;
     },
 
     background(): string {
