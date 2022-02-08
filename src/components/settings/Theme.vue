@@ -1,0 +1,59 @@
+<template>
+  <Setting name="Theme" icon="layout" @click="changeTheme()">
+    <div class="flex items-center justify-center" :class="color">
+      <Feather :type="icon" size="20" />
+    </div>
+  </Setting>
+</template>
+
+<script lang="ts">
+import Vue from "vue";
+import Setting from "@/components/settings/Setting.vue";
+
+type IconMap = {
+  [details: string]: { icon: string; color: string };
+};
+
+const icons: IconMap = {
+  light: { icon: "sun", color: "yellow-500" },
+  dark: { icon: "moon", color: "purple-500" },
+  /*alien: { icon: "box", color: "green-500" },*/
+};
+
+export default Vue.extend({
+  components: { Setting },
+
+  data() {
+    return {
+      theme: "light" as string,
+    };
+  },
+
+  computed: {
+    icon(): string {
+      return icons[this.theme].icon;
+    },
+
+    color(): string {
+      return "text-" + icons[this.theme].color;
+    },
+  },
+
+  methods: {
+    changeTheme() {
+      console.log("Click");
+      const options = Object.keys(icons);
+      const newIndex = (options.indexOf(this.theme) + 1) % options.length;
+      this.theme = options[newIndex];
+
+      console.log(options, newIndex, this.theme);
+    },
+  },
+
+  mounted() {
+    this.theme = "light";
+  },
+});
+</script>
+
+<style></style>

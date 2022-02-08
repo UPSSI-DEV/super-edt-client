@@ -2,7 +2,7 @@
   <div>
     <!--Event v-if="nextEvent" :event="nextEvent" class="mb-6" /-->
 
-    <div v-for="day in week" :key="day.day" class="flex flex-col gap-2 mb-5">
+    <div v-for="day in week" :key="day.day" class="flex flex-col gap-3 mb-5">
       <h3 class="text-left">{{ date(day.day) }}</h3>
       <Event v-for="ev in day.events" :key="ev.name" :event="ev" />
     </div>

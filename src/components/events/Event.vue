@@ -1,6 +1,6 @@
 <template>
   <div
-    class="p-3 w-full text-left text-white font-mono rounded-md"
+    class="p-3 w-full text-left text-white rounded-md"
     :class="background"
     @click="setCurrent()"
   >
@@ -60,8 +60,8 @@ export default Vue.extend({
     background(): string {
       const colorClasses: IHash = {
         other: "bg-primary-light",
-        cm: "bg-primary-base",
-        td: "bg-primary-base",
+        cm: "bg-primary",
+        td: "bg-primary",
         tp: "bg-primary-dark",
       };
       const bgClass = colorClasses[this.event.type];

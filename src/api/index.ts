@@ -11,7 +11,7 @@ export function getWeek(): Week[] {
         end: new Date(),
       },
       room: "U3 salle 2",
-      teacher: "Agnan de Bonneval",
+      teacher: "Julian the GOAT",
     })),
   }));
   return formattedEvents;

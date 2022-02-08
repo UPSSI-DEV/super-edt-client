@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-view class="p-3 overflow-y-scroll"></router-view>
+    <router-view class="pb-0 pt-5 px-5 overflow-y-scroll"></router-view>
     <NavBar />
   </div>
 </template>
