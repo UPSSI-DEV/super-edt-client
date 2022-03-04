@@ -5,10 +5,10 @@
     @click="setCurrent()"
   >
     <h3>{{ event.name }}</h3>
-    <EventDetail icon="clock" :desc="time" :class="{ 'mt-2': showDetails }" />
+    <Detail icon="clock" :desc="time" :class="{ 'mt-2': showDetails }" />
     <div v-if="showDetails">
-      <EventDetail icon="map-pin" :desc="event.room" />
-      <EventDetail icon="user" :desc="event.teacher" />
+      <Detail icon="map-pin" :desc="event.room" />
+      <Detail icon="user" :desc="event.teacher" />
     </div>
   </div>
 </template>
@@ -17,7 +17,7 @@
 import Vue from "vue";
 import { CalEvent } from "@/api";
 import moment from "moment";
-import EventDetail from "./EventDetail.vue";
+import Detail from "../Detail.vue";
 import { v4 as unique_id } from "uuid";
 
 type IHash = {
@@ -25,7 +25,7 @@ type IHash = {
 };
 
 export default Vue.extend({
-  components: { EventDetail },
+  components: { Detail },
   props: {
     event: {
       type: Object as () => CalEvent,

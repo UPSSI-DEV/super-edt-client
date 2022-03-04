@@ -15,8 +15,8 @@ type IconMap = {
 };
 
 const icons: IconMap = {
-  light: { icon: "sun", color: "yellow-500" },
-  dark: { icon: "moon", color: "purple-500" },
+  light: { icon: "sun", color: "light" },
+  dark: { icon: "moon", color: "dark" },
   /*alien: { icon: "box", color: "green-500" },*/
 };
 
@@ -35,7 +35,7 @@ export default Vue.extend({
     },
 
     color(): string {
-      return "text-" + icons[this.theme].color;
+      return "theme-" + icons[this.theme].color;
     },
   },
 
@@ -46,7 +46,7 @@ export default Vue.extend({
       const newIndex = (options.indexOf(this.theme) + 1) % options.length;
       this.theme = options[newIndex];
 
-      console.log(options, newIndex, this.theme);
+      console.log(options, newIndex, this.theme, icons[this.theme]);
     },
   },
 
@@ -56,4 +56,12 @@ export default Vue.extend({
 });
 </script>
 
-<style></style>
+<style scoped>
+.theme-light {
+  @apply text-yellow-500;
+}
+
+.theme-dark {
+  @apply text-purple-500;
+}
+</style>

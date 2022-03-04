@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-4 nav-bar p-3 gap-1">
+  <div class="nav-bar grid gap-1 grid-cols-4 p-3">
     <NavItem
       v-for="item in items"
       :key="item.route"
@@ -23,7 +23,7 @@ type NavData = {
 const data: NavData[] = [
   { name: "Week", route: "week", icon: "calendar" },
   { name: "Modules", route: "modules", icon: "book" },
-  { name: "Tests", route: "tests", icon: "percent" },
+  { name: "Exams", route: "exams", icon: "percent" },
   { name: "Settings", route: "settings", icon: "settings" },
 ];
 

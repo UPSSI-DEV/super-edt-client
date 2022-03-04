@@ -18,17 +18,24 @@ const routes: Array<RouteConfig> = [
   {
     path: "/modules",
     name: "Modules",
-    component: () => import("../views/ComingSoon.vue"),
+    component: () => import("../views/Modules.vue"),
   },
   {
-    path: "/tests",
-    name: "Tests",
-    component: () => import("../views/ComingSoon.vue"),
+    path: "/exams",
+    name: "Exams",
+    component: () => import("../views/exceptions/ComingSoon.vue"),
   },
   {
     path: "/settings",
     name: "Settings",
     component: () => import("../views/Settings.vue"),
+  },
+
+  /* 404 page */
+  {
+    path: "/:catchAll(.*)",
+    name: "NotFound",
+    component: () => import("../views/exceptions/404NotFound.vue"),
   },
 ];
 
