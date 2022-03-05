@@ -1,17 +1,15 @@
-import Vue from 'vue'
+import { createApp } from 'vue'
 import App from './App.vue'
-import router from './router'
 
-import VueFeather from 'vue-feather'
-import './assets/tailwind.css'
-import store from './store'
+import router from "./router";
+import store from "./store";
 
-Vue.config.productionTip = false
+import VueFeather from "vue-feather";
+import "./assets/tailwind.css";
 
-Vue.component(VueFeather.name, VueFeather);
+const app = createApp(App)
+app.component(VueFeather.name, VueFeather);
+app.use(router)
+app.use(store)
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+app.mount('#app')

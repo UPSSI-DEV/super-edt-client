@@ -10,13 +10,13 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import Event from "@/components/events/Event.vue";
 import { Week, CalEvent, getWeek, getNextLesson } from "@/api";
 
 import moment from "moment";
 
-export default Vue.extend({
+export default defineComponent({
   components: { Event },
   name: "Week",
 

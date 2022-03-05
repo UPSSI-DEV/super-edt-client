@@ -1,66 +1,34 @@
 {
-  "name": "client",
-  "version": "0.1.0",
+  "name": "super-edt",
   "private": true,
+  "version": "0.0.0",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "deploy": "vue-cli-service build; scp -r dist/ vps:/var/www/super_edt/beta/"
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "deploy": "npm run build && scp -r dist/ vps:/var/www/super_edt/beta/"
   },
   "dependencies": {
-    "@tailwindcss/postcss7-compat": "^2.2.17",
-    "autoprefixer": "^9",
-    "core-js": "^3.6.5",
     "feather-icons": "^4.28.0",
     "moment": "^2.29.1",
-    "postcss": "^7",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
+    "url": "^0.11.0",
     "uuid": "^8.3.2",
-    "vue": "^2.6.14",
-    "vue-class-component": "^7.2.3",
-    "vue-feather": "^1.1.1",
-    "vue-property-decorator": "^9.1.2",
-    "vue-router": "^3.2.0",
-    "vuex": "^3.4.0"
+    "vue": "^3.2.25",
+    "vue-feather": "^2.0.0",
+    "vue-router": "^4.0.13",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.18.0",
-    "@typescript-eslint/parser": "^4.18.0",
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-plugin-router": "~4.5.0",
-    "@vue/cli-plugin-typescript": "~4.5.0",
-    "@vue/cli-plugin-vuex": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "@vue/eslint-config-typescript": "^7.0.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.2.2",
+    "@types/node": "^17.0.21",
+    "@types/uuid": "^8.3.4",
+    "@vitejs/plugin-vue": "^2.2.0",
+    "autoprefixer": "^10.4.2",
+    "postcss": "^8.4.7",
     "prettier": "^2.5.1",
     "prettier-plugin-tailwind": "^2.2.12",
-    "typescript": "~4.1.5",
-    "vue-cli-plugin-tailwind": "~2.2.18",
-    "vue-template-compiler": "^2.6.11"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended",
-      "@vue/typescript"
-    ],
-    "parserOptions": {
-      "parser": "@typescript-eslint/parser"
-    },
-    "rules": {}
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+    "tailwindcss": "^3.0.23",
+    "typescript": "^4.5.4",
+    "vite": "^2.8.0",
+    "vue-tsc": "^0.29.8"
+  }
 }

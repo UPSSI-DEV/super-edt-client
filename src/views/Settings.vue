@@ -11,13 +11,13 @@
 </template>
 
 <script>
-import Vue from "vue";
+import { defineComponent } from "vue";
 import Theme from "@/components/settings/Theme.vue";
 import Xfree from "@/components/settings/Xfree.vue";
 import Setting from "@/components/settings/Setting.vue";
 import Beta from "@/components/settings/Beta.vue";
 
-export default Vue.extend({
+export default defineComponent({
   components: { Theme, Xfree, Setting, Beta },
   name: "Settings",
 });

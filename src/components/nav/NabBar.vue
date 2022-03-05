@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import NavItem from "@/components/nav/NavItem.vue";
 
 type NavData = {
@@ -27,7 +27,7 @@ const data: NavData[] = [
   { name: "Settings", route: "settings", icon: "settings" },
 ];
 
-export default Vue.extend({
+export default defineComponent({
   components: { NavItem },
 
   data() {

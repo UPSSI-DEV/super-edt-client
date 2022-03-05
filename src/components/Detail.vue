@@ -1,14 +1,14 @@
 <template>
   <div class="flex gap-2 items-center" @click="$emit('click')">
-    <Feather :type="icon" size="16" />
+    <vue-feather :type="icon" size="16" />
     <span>{{ desc }}</span>
   </div>
 </template>
 
 <script>
-import Vue from "vue";
+import { defineComponent } from "vue";
 
-export default Vue.extend({
+export default defineComponent({
   props: ["icon", "desc"],
 });
 </script>

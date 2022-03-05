@@ -1,13 +1,13 @@
 <template>
   <Setting name="Theme" icon="layout" @click="changeTheme()">
     <div class="flex items-center justify-center" :class="color">
-      <Feather :type="icon" size="20" />
+      <vue-feather :type="icon" size="20" />
     </div>
   </Setting>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import Setting from "@/components/settings/Setting.vue";
 
 type IconMap = {
@@ -20,7 +20,7 @@ const icons: IconMap = {
   /*alien: { icon: "box", color: "green-500" },*/
 };
 
-export default Vue.extend({
+export default defineComponent({
   components: { Setting },
 
   data() {

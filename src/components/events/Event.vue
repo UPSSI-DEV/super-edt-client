@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { CalEvent } from "@/api";
 import moment from "moment";
 import Detail from "../Detail.vue";
@@ -24,7 +24,7 @@ type IHash = {
   [details: string]: string;
 };
 
-export default Vue.extend({
+export default defineComponent({
   components: { Detail },
   props: {
     event: {

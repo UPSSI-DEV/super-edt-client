@@ -36,11 +36,11 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { IModule, Progress } from "@/api";
 import Detail from "./Detail.vue";
 
-export default Vue.extend({
+export default defineComponent({
   components: { Detail },
 
   data() {

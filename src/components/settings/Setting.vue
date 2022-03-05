@@ -4,7 +4,7 @@
     class="tap-effect flex items-center justify-between p-3 rounded-md transition-colors"
   >
     <div class="flex gap-2 items-center justify-start">
-      <Feather :type="icon" size="16" />
+      <vue-feather :type="icon" size="16" />
       <p>{{ name }}</p>
     </div>
     <slot />
@@ -12,9 +12,9 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 
-export default Vue.extend({
+export default defineComponent({
   props: ["icon", "name"],
 });
 </script>

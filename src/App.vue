@@ -1,15 +1,13 @@
 <template>
-  <div id="app">
     <router-view class="pb-0 pt-5 px-5 overflow-y-scroll"></router-view>
     <NavBar />
-  </div>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import NavBar from "@/components/nav/NabBar.vue";
 
-export default Vue.extend({
+export default defineComponent({
   components: { NavBar },
 });
 </script>
@@ -18,8 +16,7 @@ export default Vue.extend({
 html,
 body,
 #app {
-  height: 100%;
-  margin: 0;
+  @apply h-full m-0;
 }
 
 #app {
