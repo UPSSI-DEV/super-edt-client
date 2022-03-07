@@ -1,9 +1,9 @@
 <template>
   <router-link
     :to="route"
-    class="flex flex-col gap-1 items-center pb-2 pt-3 rounded-lg opacity-60"
+    class="flex flex-col items-center gap-1 rounded-lg pb-2 pt-3 opacity-60"
   >
-    <vue-feather :type="icon" />
+    <VueFeather :type="icon" />
     <span>{{ name }}</span>
   </router-link>
 </template>
@@ -19,7 +19,7 @@ export default defineComponent({
 <style>
 .router-link-exact-active,
 .router-link-active {
-  @apply text-white bg-black;
+  @apply bg-black text-white;
   opacity: 1 !important;
 }
 </style>

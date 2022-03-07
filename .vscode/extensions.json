@@ -3,6 +3,6 @@
     "johnsoncodehk.volar", 
     "bradlc.vscode-tailwindcss",
     "esbenp.prettier-vscode",
-    "csstools.postcss"
+    "stylelint.vscode-stylelint"
   ]
 }

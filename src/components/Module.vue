@@ -1,6 +1,6 @@
 <template>
   <div
-    class="p-3 w-full text-left text-white bg-primary-dark rounded-md"
+    class="w-full rounded-md bg-primary-dark p-3 text-left text-white"
     @click="clicked = !clicked"
   >
     <h3>{{ module.name }}</h3>
@@ -10,7 +10,7 @@
       <hr class="color-applier my-3 w-full border-b border-white" />
 
       <div
-        class="flex items-center justify-start w-full h-3 bg-white rounded-full overflow-hidden"
+        class="flex h-3 w-full items-center justify-start overflow-hidden rounded-full bg-white"
       >
         <div
           v-for="prog in module.progress"
@@ -21,13 +21,13 @@
         ></div>
       </div>
 
-      <div class="flex items-center justify-between mt-3">
+      <div class="mt-3 flex items-center justify-between">
         <div
           v-for="prog in module.progress"
           :key="prog.name"
-          class="flex gap-2 items-center justify-start"
+          class="flex items-center justify-start gap-2"
         >
-          <div class="w-3 h-3 rounded-full" :class="progColor(prog.name)"></div>
+          <div class="h-3 w-3 rounded-full" :class="progColor(prog.name)"></div>
           <div>{{ progDesc(prog) }}</div>
         </div>
       </div>

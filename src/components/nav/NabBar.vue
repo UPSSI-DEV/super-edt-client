@@ -1,5 +1,5 @@
 <template>
-  <div class="nav-bar grid gap-1 grid-cols-4 p-3">
+  <div class="nav-bar grid grid-cols-4 gap-1 p-3">
     <NavItem
       v-for="item in items"
       :key="item.route"

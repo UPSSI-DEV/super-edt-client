@@ -1,7 +1,7 @@
 <template>
   <Setting name="Theme" icon="layout" @click="changeTheme()">
     <div class="flex items-center justify-center" :class="color">
-      <vue-feather :type="icon" size="20" />
+      <VueFeather :type="icon" size="20" />
     </div>
   </Setting>
 </template>

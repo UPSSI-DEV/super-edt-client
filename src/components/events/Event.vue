@@ -1,6 +1,6 @@
 <template>
   <div
-    class="p-3 w-full text-left text-white rounded-md"
+    class="w-full rounded-md p-3 text-left text-white"
     :class="background"
     @click="setCurrent()"
   >

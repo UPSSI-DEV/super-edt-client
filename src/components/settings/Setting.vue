@@ -1,13 +1,13 @@
 <template>
   <div
     @click="$emit('click')"
-    class="tap-effect flex items-center justify-between p-3 rounded-md transition-colors"
+    class="tap-effect flex items-center justify-between rounded-md p-3 transition-colors"
   >
-    <div class="flex gap-2 items-center justify-start">
-      <vue-feather :type="icon" size="16" />
+    <div class="flex items-center justify-start gap-2">
+      <VueFeather :type="icon" size="16" />
       <p>{{ name }}</p>
     </div>
-    <slot />
+    <slot></slot>
   </div>
 </template>
 
@@ -15,6 +15,7 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
+  emits: ["click"],
   props: ["icon", "name"],
 });
 </script>

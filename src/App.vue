@@ -1,6 +1,6 @@
 <template>
-    <router-view class="pb-0 pt-5 px-5 overflow-y-scroll"></router-view>
-    <NavBar />
+  <router-view class="overflow-y-scroll px-5 pb-0 pt-5"></router-view>
+  <NavBar />
 </template>
 
 <script lang="ts">
@@ -16,7 +16,7 @@ export default defineComponent({
 html,
 body,
 #app {
-  @apply h-full m-0;
+  @apply m-0 h-full;
 }
 
 #app {

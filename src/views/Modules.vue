@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-3 mb-5">
+  <div class="mb-5 flex flex-col gap-3">
     <div
       v-for="[ue, moduleList] in Object.entries(modules)"
       :key="ue"
