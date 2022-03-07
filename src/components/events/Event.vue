@@ -20,6 +20,8 @@ import moment from "moment";
 import Detail from "../Detail.vue";
 import { v4 as unique_id } from "uuid";
 
+import eventStore from "@/stores/event";
+
 type IHash = {
   [details: string]: string;
 };
@@ -41,9 +43,8 @@ export default defineComponent({
 
   methods: {
     setCurrent() {
-      const commitData =
-        this.$store.getters.curEvent == this.id ? null : this.id;
-      this.$store.commit("setCurrent", commitData);
+      if (eventStore.isCurrentEvent(this.id)) eventStore.clearCurrentEvent();
+      else eventStore.setCurrentEvent(this.id);
     },
   },
 
@@ -54,7 +55,7 @@ export default defineComponent({
     },
 
     showDetails(): boolean {
-      return this.$store.getters.curEvent == this.id;
+      return eventStore.isCurrentEvent(this.id);
     },
 
     background(): string {
