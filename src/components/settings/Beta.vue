@@ -4,6 +4,7 @@
       name="Give some feedback"
       icon="message-circle"
       @click="showDialog = !showDialog"
+      :class="{ 'bg-gray-100': showDialog }"
     />
     <div v-if="showDialog" class="mt-3 px-3">
       <textarea
@@ -24,6 +25,8 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import Setting from "@/components/settings/Setting.vue";
+
+import { postFeedback } from "@/api";
 
 export default defineComponent({
   components: { Setting },
@@ -47,6 +50,8 @@ export default defineComponent({
     sendFeedback() {
       this.showDialog = false;
       console.log("feedback:", this.feedback);
+
+      postFeedback(this.feedback);
     },
   },
 });
