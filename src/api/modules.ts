@@ -7,10 +7,6 @@ export { Module as IModule, Resource, Progress, ModuleReturn };
 
 // Functions
 
-interface ModuleReturn {
-  [index: number]: Module[];
-}
-
 function getModules(): ModuleReturn {
   const moduleList = modules.map((x) => <Module>x);
   const partitionnedList: ModuleReturn = {};
@@ -25,6 +21,10 @@ function getModules(): ModuleReturn {
 }
 
 // Interfaces
+
+interface ModuleReturn {
+  [index: number]: Module[];
+}
 
 interface Module {
   ue: number;

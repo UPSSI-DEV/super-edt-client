@@ -1,27 +1,58 @@
 import events from "./data/events.json";
+import supabase from "./supabase";
 
 // Exports
 
 export { getWeek, getNextLesson };
-export { Week as Week, CalEvent };
+export { Week, CalEvent };
 
 // Functions
 
-function getWeek(): Week[] {
-  const formattedEvents: Week[] = Object.entries(events).map((x) => ({
-    day: x[0],
-    events: x[1].map((y) => ({
-      name: y.name,
-      type: y.type,
-      time: {
-        start: new Date(),
-        end: new Date(),
-      },
-      room: "U3 salle 2",
-      teacher: "Julian the GOAT",
-    })),
+async function getWeek(): Promise<Week> {
+  const [monday, saturday] = getWeekDates();
+  console.log(monday, saturday);
+  const { data, error } = await supabase
+    .from<SupabaseEvent>("Events")
+    .select("*")
+    .gte("start_time", monday)
+    .lt("end_time", saturday);
+  // TODO: Add filter based on class
+
+  return error ? [] : formatEvents(data);
+}
+
+function getWeekDates() {
+  const now = new Date();
+  const getWeekdayDate = (day_num: number) => {
+    let diff = now.getDate() - now.getDay() + day_num;
+    return new Date(now.setDate(diff)).toUTCString();
+  };
+
+  return [getWeekdayDate(1), getWeekdayDate(6)];
+}
+
+function formatEvents(events: SupabaseEvent[]): Week {
+  // Convert to required format
+  const formattedEvents: CalEvent[] = events.map((evt) => ({
+    name: evt.summary,
+    type: "td",
+    time: {
+      start: new Date(evt.start_time),
+      end: new Date(evt.end_time),
+    },
+    room: "U3 salle 2",
+    teacher: "Julian the GOAT",
   }));
-  return formattedEvents;
+
+  // Partition according to event day
+  const week: DayHashMap = {};
+  for (const evt of formattedEvents) {
+    const date = evt.time.start.toLocaleDateString();
+    if (week[date] == undefined) week[date] = { day: date, events: [] };
+    week[date].events.push(evt);
+  }
+
+  return Object.values(week);
 }
 
 function getNextLesson(): CalEvent {
@@ -35,10 +66,16 @@ function getNextLesson(): CalEvent {
 
 // Types
 
-interface Week {
+interface Day {
   day: string;
   events: CalEvent[];
 }
+
+interface DayHashMap {
+  [index: string]: Day;
+}
+
+type Week = Day[];
 
 interface CalEvent {
   name: string;
@@ -49,4 +86,11 @@ interface CalEvent {
   };
   room: string;
   teacher: string;
+}
+
+interface SupabaseEvent {
+  summary: string;
+  start_time: string;
+  end_time: string;
+  origin: string;
 }

@@ -5,7 +5,8 @@ declare module "*.vue" {
 }
 
 interface ImportMetaEnv {
-  readonly VITE_API_ROOT: string;
+  readonly VITE_SUPABASE_HOST: string;
+  readonly VITE_SUPABASE_API_KEY: string;
 }
 
 interface ImportMeta {

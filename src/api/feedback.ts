@@ -1,15 +1,15 @@
-import config from "@/config";
+import supabase from "./supabase";
 
 /* Exports */
 export { postFeedback };
 
 /* Methods */
 async function postFeedback(feedback: string): Promise<boolean> {
-  const url = `${config.api_root}/feedback?feedback=${feedback}`;
-  console.log("root api:", config.api_root, "url:", url);
-  const result = await fetch(url, {
-    method: "POST",
-  }).then((res) => res.json());
+  const { error } = await supabase.from("Feedback").insert({
+    date: new Date().toUTCString(),
+    version: "1.1.0",
+    feedback: feedback,
+  });
 
-  return result.success;
+  return error == null;
 }

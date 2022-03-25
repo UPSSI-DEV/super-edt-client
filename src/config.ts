@@ -1,3 +1,4 @@
 export default {
-  api_root: import.meta.env.VITE_API_ROOT as string,
+  api_host: import.meta.env.VITE_SUPABASE_HOST as string,
+  api_key: import.meta.env.VITE_SUPABASE_API_KEY as string,
 };
