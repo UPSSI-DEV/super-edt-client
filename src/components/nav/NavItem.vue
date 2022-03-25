@@ -4,7 +4,7 @@
     class="flex flex-col items-center gap-1 rounded-lg pb-2 pt-3 opacity-60"
   >
     <VueFeather :type="icon" />
-    <span>{{ name }}</span>
+    <span class="text-sm">{{ name }}</span>
   </router-link>
 </template>
 

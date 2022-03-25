@@ -20,7 +20,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/exams",
     name: "Exams",
-    component: () => import("@/views/exceptions/ComingSoon.vue"),
+    component: () => import("@/views/Exams.vue"),
   },
   {
     path: "/settings",

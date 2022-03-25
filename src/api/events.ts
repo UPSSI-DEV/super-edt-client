@@ -1,14 +1,13 @@
-import events from "./data/events.json";
 import supabase from "./supabase";
 
 // Exports
 
-export { getWeek, getNextLesson };
-export { Week, CalEvent };
+export { getWeek, getNextLesson, getExams };
+export { Day, CalEvent };
 
 // Functions
 
-async function getWeek(): Promise<Week> {
+async function getWeek(): Promise<Day[]> {
   const [monday, saturday] = getWeekDates();
   console.log(monday, saturday);
   const { data, error } = await supabase
@@ -18,11 +17,45 @@ async function getWeek(): Promise<Week> {
     .lt("end_time", saturday);
   // TODO: Add filter based on class
 
-  return error ? [] : formatEvents(data);
+  return error ? [] : partition(formatEvents(data));
 }
+
+async function getNextLesson(): Promise<CalEvent | null> {
+  const now = new Date().toUTCString();
+  const { data, error } = await supabase
+    .from<SupabaseEvent>("Events")
+    .select("*")
+    .gte("end_time", now);
+
+  return error || data.length == 0 ? null : formatEvents([data[0]])[0];
+}
+
+async function getExams(): Promise<Day[]> {
+  const { data, error } = await supabase
+    .from<SupabaseEvent>("Events")
+    .select("*")
+    .gte("end_time", new Date().toUTCString())
+    .like("summary", "%**EXAMEN**%")
+    .neq("summary", "**EXAMEN** 1/3 TEMPS");
+
+  const session2 = await supabase
+    .from<SupabaseEvent>("Events")
+    .select("*")
+    .like("summary", "%Session 2%");
+
+  if (!session2.error) {
+    console.log(formatEvents(session2.data));
+  }
+
+  return error ? [] : partition(formatEvents(data));
+}
+
+// Helper methods
 
 function getWeekDates() {
   const now = new Date();
+  now.setHours(0, 0, 0, 0);
+
   const getWeekdayDate = (day_num: number) => {
     let diff = now.getDate() - now.getDay() + day_num;
     return new Date(now.setDate(diff)).toUTCString();
@@ -31,37 +64,31 @@ function getWeekDates() {
   return [getWeekdayDate(1), getWeekdayDate(6)];
 }
 
-function formatEvents(events: SupabaseEvent[]): Week {
-  // Convert to required format
-  const formattedEvents: CalEvent[] = events.map((evt) => ({
-    name: evt.summary,
-    type: "td",
-    time: {
-      start: new Date(evt.start_time),
-      end: new Date(evt.end_time),
-    },
-    room: "U3 salle 2",
-    teacher: "Julian the GOAT",
-  }));
-
-  // Partition according to event day
-  const week: DayHashMap = {};
-  for (const evt of formattedEvents) {
-    const date = evt.time.start.toLocaleDateString();
-    if (week[date] == undefined) week[date] = { day: date, events: [] };
-    week[date].events.push(evt);
-  }
-
-  return Object.values(week);
+function formatEvents(events: SupabaseEvent[]): CalEvent[] {
+  return events
+    .map((evt) => ({
+      name: evt.summary,
+      type: "tp",
+      time: {
+        start: new Date(evt.start_time),
+        end: new Date(evt.end_time),
+      },
+      room: "U3 salle 2",
+      teacher: "Julian the GOAT",
+    }))
+    .filter((evt) => ![0, 6].includes(evt.time.start.getDay())); // Remove all events that occur on a week-end
 }
 
-function getNextLesson(): CalEvent {
-  const random = (x: any) => {
-    const arr = Object.values(x);
-    const index = Math.floor(Math.random() * arr.length);
-    return arr[index];
-  };
-  return <CalEvent>random(random(events));
+// Partition according to event day
+function partition(events: CalEvent[]): Day[] {
+  const days: DayHashMap = {};
+  for (const evt of events) {
+    const date = evt.time.start.toLocaleDateString();
+    if (days[date] == undefined) days[date] = { day: date, events: [] };
+    days[date].events.push(evt);
+  }
+
+  return Object.values(days);
 }
 
 // Types
@@ -74,8 +101,6 @@ interface Day {
 interface DayHashMap {
   [index: string]: Day;
 }
-
-type Week = Day[];
 
 interface CalEvent {
   name: string;

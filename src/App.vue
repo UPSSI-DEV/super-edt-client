@@ -1,5 +1,9 @@
 <template>
-  <router-view class="overflow-y-scroll px-5 pb-0 pt-5"></router-view>
+  <router-view class="overflow-y-scroll px-5 pb-0 pt-5" v-slot="{ Component }">
+    <keep-alive>
+      <component :is="Component" />
+    </keep-alive>
+  </router-view>
   <NavBar />
 </template>
 

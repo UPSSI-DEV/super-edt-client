@@ -21,10 +21,10 @@ type NavData = {
 };
 
 const data: NavData[] = [
-  { name: "Week", route: "week", icon: "calendar" },
+  { name: "Cours", route: "week", icon: "calendar" },
   { name: "Modules", route: "modules", icon: "book" },
-  { name: "Exams", route: "exams", icon: "percent" },
-  { name: "Settings", route: "settings", icon: "settings" },
+  { name: "Examens", route: "exams", icon: "edit" },
+  { name: "Paramètres", route: "settings", icon: "settings" },
 ];
 
 export default defineComponent({

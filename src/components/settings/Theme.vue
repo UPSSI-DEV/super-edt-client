@@ -10,6 +10,8 @@
 import { defineComponent } from "vue";
 import Setting from "@/components/settings/Setting.vue";
 
+import { darkMode } from "@/stores/app-state";
+
 type IconMap = {
   [details: string]: { icon: string; color: string };
 };
@@ -25,7 +27,7 @@ export default defineComponent({
 
   data() {
     return {
-      theme: "light" as string,
+      theme: darkMode,
     };
   },
 

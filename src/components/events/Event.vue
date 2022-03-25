@@ -5,8 +5,8 @@
     @click="setCurrent()"
   >
     <h3>{{ event.name }}</h3>
-    <Detail icon="clock" :desc="time" :class="{ 'mt-2': showDetails }" />
-    <div v-if="showDetails">
+    <Detail icon="clock" :desc="time" /><!--:class="{ 'mt-2': showDetails }"-->
+    <div v-show="false">
       <Detail icon="map-pin" :desc="event.room" />
       <Detail icon="user" :desc="event.teacher" />
     </div>
