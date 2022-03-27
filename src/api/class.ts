@@ -2,7 +2,7 @@ import supabase from "./supabase";
 
 // Exports
 
-export { getCalendars, getClasses };
+export { getClasses, getCalendars };
 
 // Methods
 
@@ -12,18 +12,20 @@ async function getClasses() {
 }
 
 async function getCalendars(class_name: string): Promise<string[]> {
+  let calendars = [];
   const classes = await supabase
     .from("Classes")
     .select("links")
     .eq("name", class_name);
 
-  if (classes.error || classes.data.length == 0) return [];
+  if (!classes.error && classes.data.length != 0) {
+    const classLinks: number[] = classes.data[0].links;
+    const { data, error } = await supabase
+      .from("Calendars")
+      .select("link")
+      .in("id", classLinks);
+    if (!error) calendars = data.map((cal) => cal.link);
+  }
 
-  const classLinks = classes.data[0].links;
-  const { data, error } = await supabase
-    .from("Calendars")
-    .select("link")
-    .containedBy("id", classLinks);
-
-  return error ? [] : data.map((cal) => cal.link);
+  return calendars;
 }

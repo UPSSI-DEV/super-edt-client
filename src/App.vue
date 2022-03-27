@@ -1,5 +1,9 @@
 <template>
-  <router-view class="overflow-y-scroll px-5 pb-0 pt-5" v-slot="{ Component }">
+  <router-view
+    id="router"
+    class="relative overflow-y-scroll px-5 pb-0 pt-5"
+    v-slot="{ Component }"
+  >
     <keep-alive>
       <component :is="Component" />
     </keep-alive>
@@ -20,7 +24,7 @@ export default defineComponent({
 html,
 body,
 #app {
-  @apply m-0 h-full;
+  @apply relative m-0 h-full;
 }
 
 #app {

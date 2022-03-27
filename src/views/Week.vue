@@ -18,7 +18,9 @@ import { defineComponent } from "vue";
 import Event from "@/components/events/Event.vue";
 import { Day, CalEvent, getWeek, getNextLesson } from "@/api";
 
-import { ignoreXFree } from "@/stores/app-state";
+import { ignoreXFree, currentClass } from "@/stores/app-state";
+import { getUserCalendars } from "@/stores/calendars";
+
 import moment from "moment";
 
 export default defineComponent({
@@ -51,9 +53,12 @@ export default defineComponent({
     },
   },
 
-  async created() {
-    this.week = await getWeek();
-    this.nextEvent = await getNextLesson();
+  async activated() {
+    const { calendars, change } = await getUserCalendars(currentClass.value);
+    if (this.week.length == 0 || this.nextEvent == null || change) {
+      this.week = await getWeek(calendars);
+      this.nextEvent = await getNextLesson(calendars);
+    }
   },
 });
 </script>

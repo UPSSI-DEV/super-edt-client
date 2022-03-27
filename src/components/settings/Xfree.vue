@@ -1,5 +1,5 @@
 <template>
-  <Setting name="Ignore XFree" icon="bell-off" v-on:click="toggleIgnore()">
+  <Setting name="Ignorer XFree" icon="bell-off" v-on:click="toggleIgnore()">
     <span class="font-bold">{{ isOn }}</span>
   </Setting>
 </template>
@@ -20,7 +20,7 @@ export default defineComponent({
 
   computed: {
     isOn(): string {
-      return this.ignore ? "YES" : "NO";
+      return this.ignore ? "OUI" : "NON";
     },
   },
 

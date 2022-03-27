@@ -20,6 +20,9 @@ import { Day, getExams } from "@/api";
 
 import moment from "moment";
 
+import { currentClass } from "@/stores/app-state";
+import { getUserCalendars } from "@/stores/calendars";
+
 export default defineComponent({
   name: "Exams",
   components: { Event },
@@ -30,8 +33,11 @@ export default defineComponent({
     };
   },
 
-  async created() {
-    this.exams = await getExams();
+  async activated() {
+    const { calendars, change } = await getUserCalendars(currentClass.value);
+    if (change || this.exams == []) {
+      this.exams = await getExams(calendars);
+    }
   },
 
   methods: {

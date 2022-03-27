@@ -7,46 +7,47 @@ export { Day, CalEvent };
 
 // Functions
 
-async function getWeek(): Promise<Day[]> {
+async function getWeek(calendars: string[]): Promise<Day[]> {
   const [monday, saturday] = getWeekDates();
-  console.log(monday, saturday);
+
   const { data, error } = await supabase
     .from<SupabaseEvent>("Events")
     .select("*")
+    .in("origin", calendars)
     .gte("start_time", monday)
     .lt("end_time", saturday);
-  // TODO: Add filter based on class
 
   return error ? [] : partition(formatEvents(data));
 }
 
-async function getNextLesson(): Promise<CalEvent | null> {
+async function getNextLesson(calendars: string[]): Promise<CalEvent | null> {
   const now = new Date().toUTCString();
   const { data, error } = await supabase
     .from<SupabaseEvent>("Events")
     .select("*")
+    .in("origin", calendars)
     .gte("end_time", now);
 
   return error || data.length == 0 ? null : formatEvents([data[0]])[0];
 }
 
-async function getExams(): Promise<Day[]> {
+async function getExams(calendars: string[]): Promise<Day[]> {
   const { data, error } = await supabase
     .from<SupabaseEvent>("Events")
     .select("*")
+    .in("origin", calendars)
     .gte("end_time", new Date().toUTCString())
     .like("summary", "%**EXAMEN**%")
     .neq("summary", "**EXAMEN** 1/3 TEMPS");
 
-  const session2 = await supabase
-    .from<SupabaseEvent>("Events")
-    .select("*")
-    .like("summary", "%Session 2%");
+  // const session2 = await supabase
+  //   .from<SupabaseEvent>("Events")
+  //   .select("*")
+  //   .like("summary", "%Session 2%");
 
-  if (!session2.error) {
-    console.log(formatEvents(session2.data));
-  }
-
+  // if (!session2.error) {
+  //   console.log(formatEvents(session2.data));
+  // }
   return error ? [] : partition(formatEvents(data));
 }
 

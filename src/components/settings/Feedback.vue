@@ -1,15 +1,15 @@
 <template>
   <div>
     <Setting
-      name="Give some feedback"
+      name="Un commentaire à faire ?"
       icon="message-circle"
-      @click="showDialog = !showDialog"
-      :class="{ 'bg-gray-100': showDialog }"
+      @click="modal.showModal()"
     />
-    <div v-if="showDialog" class="mt-3 px-3">
+    <Modal title="Exprimez-vous" ref="feedbackModal">
       <textarea
         @input="setFeedback($event)"
-        placeholder="Write your comments here ..."
+        placeholder="Vos commentaires, remarques, bugs trouvés ..."
+        rows="5"
         class="w-full resize-none rounded-lg border-2 border-gray-300 placeholder:text-gray-400 focus:border-primary-light focus:ring-0"
       ></textarea>
       <button
@@ -18,40 +18,40 @@
       >
         Send
       </button>
-    </div>
+    </Modal>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import Setting from "@/components/settings/Setting.vue";
+import Modal from "@/components/Modal.vue";
 
 import { postFeedback } from "@/api";
 
 export default defineComponent({
-  components: { Setting },
+  components: { Setting, Modal },
 
   data() {
     return {
       feedback: "" as string,
-      showDialog: false as boolean,
     };
   },
 
   methods: {
-    launchLink() {
-      window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
-    },
-
     setFeedback(event: any) {
       this.feedback = event.target.value;
     },
 
     sendFeedback() {
-      this.showDialog = false;
-      console.log("feedback:", this.feedback);
-
+      this.modal.hideModal();
       postFeedback(this.feedback);
+    },
+  },
+
+  computed: {
+    modal() {
+      return this.$refs["feedbackModal"] as typeof Modal;
     },
   },
 });

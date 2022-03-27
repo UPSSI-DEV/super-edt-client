@@ -1,5 +1,5 @@
 <template>
-  <Setting name="Theme" icon="layout" @click="changeTheme()">
+  <Setting name="Thème visuel" icon="layout" @click="changeTheme()">
     <div class="flex items-center justify-center" :class="color">
       <VueFeather :type="icon" size="20" />
     </div>
@@ -19,7 +19,7 @@ type IconMap = {
 const icons: IconMap = {
   light: { icon: "sun", color: "light" },
   dark: { icon: "moon", color: "dark" },
-  /*alien: { icon: "box", color: "green-500" },*/
+  // alien: { icon: "box", color: "green-500" },
 };
 
 export default defineComponent({
@@ -50,10 +50,6 @@ export default defineComponent({
 
       console.log(options, newIndex, this.theme, icons[this.theme]);
     },
-  },
-
-  mounted() {
-    this.theme = "light";
   },
 });
 </script>
