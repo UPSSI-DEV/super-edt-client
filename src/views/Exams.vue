@@ -23,6 +23,7 @@ import { currentClass } from "@/stores/app-state";
 import { getUserCalendars } from "@/stores/calendars";
 
 import { formatDate } from "@/tools/functions";
+import { arrayEquals } from "@/tools/array";
 
 export default defineComponent({
   name: "Exams",
@@ -30,6 +31,7 @@ export default defineComponent({
 
   data() {
     return {
+      calendars: [] as string[],
       loading: false as boolean,
       exams: [] as Day[],
     };
@@ -37,10 +39,13 @@ export default defineComponent({
 
   async activated() {
     this.loading = true;
-    const { calendars, change } = await getUserCalendars(currentClass.value);
-    if (change || this.exams.length == 0) {
+    const { calendars } = await getUserCalendars(currentClass.value);
+
+    if (!arrayEquals(this.calendars, calendars)) {
+      this.calendars = calendars;
       this.exams = await getExams(calendars);
     }
+
     this.loading = false;
   },
 

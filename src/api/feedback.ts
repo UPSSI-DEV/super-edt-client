@@ -1,4 +1,5 @@
 import supabase from "./supabase";
+import config from "@/config";
 
 /* Exports */
 export { postFeedback };
@@ -7,7 +8,7 @@ export { postFeedback };
 async function postFeedback(feedback: string): Promise<boolean> {
   const { error } = await supabase.from("Feedback").insert({
     date: new Date().toUTCString(),
-    version: "1.1.0",
+    version: config.version,
     feedback: feedback,
   });
 

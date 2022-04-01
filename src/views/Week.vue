@@ -29,6 +29,7 @@ import { ignoreXFree, currentClass } from "@/stores/app-state";
 import { getUserCalendars } from "@/stores/calendars";
 
 import { formatDate } from "@/tools/functions";
+import { arrayEquals } from "@/tools/array";
 
 export default defineComponent({
   components: { Event },
@@ -36,6 +37,7 @@ export default defineComponent({
 
   data() {
     return {
+      calendars: [] as string[],
       loading: false as boolean,
       week: [] as Day[],
       nextEvent: null as CalEvent | null,
@@ -46,9 +48,14 @@ export default defineComponent({
     formatDate,
 
     events(events: CalEvent[]) {
-      return !ignoreXFree.value
-        ? events
-        : events.filter((evt) => !evt.name.includes("Xfree"));
+      return events.filter((evt) => {
+        let shouldKeep = true;
+
+        if (ignoreXFree.value && evt.name.includes("Xfree")) shouldKeep = false;
+        if (evt.name.includes("**EXAMEN** 1/3 TEMPS")) shouldKeep = false;
+
+        return shouldKeep;
+      });
     },
   },
 
@@ -61,12 +68,14 @@ export default defineComponent({
 
   async activated() {
     this.loading = true;
-    const { calendars, change } = await getUserCalendars(currentClass.value);
-    console.log(this.week.length == 0, this.nextEvent == null, change);
-    if (this.week.length == 0 || this.nextEvent == null || change) {
+    const { calendars } = await getUserCalendars(currentClass.value);
+
+    if (!arrayEquals(this.calendars, calendars)) {
+      this.calendars = calendars;
       this.nextEvent = await getNextLesson(calendars);
       this.week = await getWeek(calendars);
     }
+
     this.loading = false;
   },
 });
