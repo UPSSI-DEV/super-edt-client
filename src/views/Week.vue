@@ -1,13 +1,20 @@
 <template>
   <div>
+    <div
+      v-if="loading"
+      class="absolute top-0 left-0 right-0 bottom-0 grid place-items-center bg-bg"
+    >
+      <span>Loading ...</span>
+    </div>
+
     <div v-if="nextEvent" class="mb-3 flex flex-col gap-3">
       <h3>{{ nextLessonBlurb }}</h3>
       <Event :event="nextEvent" />
-      <hr class="my-1 border-b border-gray-200" />
+      <hr class="my-1 border-b border-bg-secondary" />
     </div>
 
     <div v-for="day in week" :key="day.day" class="mb-5 flex flex-col gap-3">
-      <h3 class="text-left">{{ date(day.day) }}</h3>
+      <h3 class="text-left capitalize">{{ formatDate(day.day) }}</h3>
       <Event v-for="ev in events(day.events)" :key="ev.name" :event="ev" />
     </div>
   </div>
@@ -21,7 +28,7 @@ import { Day, CalEvent, getWeek, getNextLesson } from "@/api";
 import { ignoreXFree, currentClass } from "@/stores/app-state";
 import { getUserCalendars } from "@/stores/calendars";
 
-import moment from "moment";
+import { formatDate } from "@/tools/functions";
 
 export default defineComponent({
   components: { Event },
@@ -29,15 +36,14 @@ export default defineComponent({
 
   data() {
     return {
+      loading: false as boolean,
       week: [] as Day[],
       nextEvent: null as CalEvent | null,
     };
   },
 
   methods: {
-    date(datestring: string) {
-      return moment(datestring, "DD-MM-YYYY").format("dd Do MMMM");
-    },
+    formatDate,
 
     events(events: CalEvent[]) {
       return !ignoreXFree.value
@@ -54,11 +60,14 @@ export default defineComponent({
   },
 
   async activated() {
+    this.loading = true;
     const { calendars, change } = await getUserCalendars(currentClass.value);
+    console.log(this.week.length == 0, this.nextEvent == null, change);
     if (this.week.length == 0 || this.nextEvent == null || change) {
-      this.week = await getWeek(calendars);
       this.nextEvent = await getNextLesson(calendars);
+      this.week = await getWeek(calendars);
     }
+    this.loading = false;
   },
 });
 </script>

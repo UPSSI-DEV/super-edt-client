@@ -30,6 +30,6 @@ export default defineComponent({
 
 <style socped>
 .h-bar {
-  @apply my-3 w-full border-b border-gray-200;
+  @apply my-3 w-full border-b border-bg-secondary;
 }
 </style>

@@ -22,6 +22,6 @@ export default defineComponent({
 
 <style>
 .tap-effect:active {
-  @apply bg-gray-100;
+  @apply bg-bg-secondary;
 }
 </style>

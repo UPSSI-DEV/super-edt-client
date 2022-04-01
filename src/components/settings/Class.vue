@@ -6,7 +6,8 @@
   <Modal title="Choisissez votre classe" width="75%" ref="classModal">
     <p
       v-for="cls of classes.sort()"
-      class="rounded-lg py-3 hover:bg-gray-200 active:bg-gray-200"
+      class="rounded-lg py-3 hover:bg-bg-secondary active:bg-bg-secondary"
+      :class="{ 'bg-bg-secondary': isCurrent(cls) }"
       @click="setCurrent(cls)"
     >
       {{ cls }}
@@ -37,6 +38,10 @@ export default defineComponent({
     setCurrent(cls: string) {
       this.selectedClass = cls;
       this.modal.hideModal();
+    },
+
+    isCurrent(name: string): boolean {
+      return this.selectedClass == name;
     },
   },
 

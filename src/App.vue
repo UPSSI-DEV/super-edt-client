@@ -24,7 +24,11 @@ export default defineComponent({
 html,
 body,
 #app {
-  @apply relative m-0 h-full;
+  @apply relative m-0 h-full bg-bg;
+}
+
+body {
+  @apply bg-bg text-text;
 }
 
 #app {

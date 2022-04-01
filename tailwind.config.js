@@ -1,3 +1,5 @@
+const getThemeColor = (variable) => `var(--${variable})`;
+
 module.exports = {
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
 
@@ -5,10 +7,16 @@ module.exports = {
     extend: {
       /* Custom colors */
       colors: {
+        bg: {
+          DEFAULT: getThemeColor("bg-primary"),
+          secondary: getThemeColor("bg-secondary"),
+        },
+        text: getThemeColor("text-primary"),
+
         primary: {
-          DEFAULT: "#f4a261",
-          light: "#e9c46a",
-          dark: "#e76f51",
+          DEFAULT: getThemeColor("primary"),
+          light: getThemeColor("primary-light"),
+          dark: getThemeColor("primary-dark"),
         },
       },
 
@@ -19,7 +27,5 @@ module.exports = {
     },
   },
 
-  plugins: [
-    require("@tailwindcss/forms")
-  ]
+  plugins: [require("@tailwindcss/forms")],
 };

@@ -19,7 +19,7 @@ export default defineComponent({
 <style>
 .router-link-exact-active,
 .router-link-active {
-  @apply bg-black text-white;
+  @apply bg-bg-secondary text-text;
   opacity: 1 !important;
 }
 </style>

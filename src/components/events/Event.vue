@@ -16,11 +16,11 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { CalEvent } from "@/api";
-import moment from "moment";
 import Detail from "../Detail.vue";
 import { v4 as unique_id } from "uuid";
 
 import eventStore from "@/stores/event";
+import { formatTime } from "@/tools/functions";
 
 type IHash = {
   [details: string]: string;
@@ -50,7 +50,7 @@ export default defineComponent({
 
   computed: {
     time(): string {
-      const hm = (x: Date) => moment(x).format("HH:mm");
+      const hm = (x: Date) => formatTime(x);
       return `${hm(this.event.time.start)} - ${hm(this.event.time.end)}`;
     },
 

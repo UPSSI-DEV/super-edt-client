@@ -5,7 +5,7 @@ import router from "./router";
 import { createPinia } from "pinia";
 
 import VueFeather from "vue-feather";
-import "./assets/tailwind.css";
+import "./assets/theme.css";
 
 const app = createApp(App);
 app.component(VueFeather.name, VueFeather);

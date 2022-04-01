@@ -10,11 +10,11 @@
           class="pointer-events-none absolute top-0 left-0 right-0 bottom-0 z-50 grid place-items-center p-3"
         >
           <div
-            class="pointer-events-auto rounded-lg bg-white p-3 text-center"
+            class="pointer-events-auto rounded-lg bg-bg p-3 text-center"
             :style="widthStyle"
           >
             <h3
-              class="mb-3 border-b-2 border-gray-200 py-3 font-bold"
+              class="mb-3 border-b-2 border-bg-secondary py-3 font-bold"
               v-if="title"
             >
               {{ title }}

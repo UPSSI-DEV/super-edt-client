@@ -11,16 +11,16 @@ import { defineComponent } from "vue";
 import Setting from "@/components/settings/Setting.vue";
 
 import { darkMode } from "@/stores/app-state";
+import { BasicColorSchema } from "@vueuse/core";
 
-type IconMap = {
-  [details: string]: { icon: string; color: string };
-};
+import Map from "@/tools/map";
+import { isTSConstructSignatureDeclaration } from "@babel/types";
 
-const icons: IconMap = {
-  light: { icon: "sun", color: "light" },
-  dark: { icon: "moon", color: "dark" },
-  // alien: { icon: "box", color: "green-500" },
-};
+type IconInfo = { icon: string; color: string };
+
+const icons = new Map<BasicColorSchema, IconInfo>();
+icons.set("light", { icon: "sun", color: "light" });
+icons.set("dark", { icon: "moon", color: "dark" });
 
 export default defineComponent({
   components: { Setting },
@@ -33,22 +33,20 @@ export default defineComponent({
 
   computed: {
     icon(): string {
-      return icons[this.theme].icon;
+      return icons.get(this.theme).icon;
     },
 
     color(): string {
-      return "theme-" + icons[this.theme].color;
+      return "theme-" + icons.get(this.theme).color;
     },
   },
 
   methods: {
     changeTheme() {
-      console.log("Click");
-      const options = Object.keys(icons);
+      const options = icons.keySet();
       const newIndex = (options.indexOf(this.theme) + 1) % options.length;
-      this.theme = options[newIndex];
 
-      console.log(options, newIndex, this.theme, icons[this.theme]);
+      this.theme = options[newIndex];
     },
   },
 });
@@ -60,6 +58,6 @@ export default defineComponent({
 }
 
 .theme-dark {
-  @apply text-purple-500;
+  @apply text-violet-600;
 }
 </style>

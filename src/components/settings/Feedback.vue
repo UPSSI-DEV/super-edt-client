@@ -10,7 +10,7 @@
         @input="setFeedback($event)"
         placeholder="Vos commentaires, remarques, bugs trouvés ..."
         rows="5"
-        class="w-full resize-none rounded-lg border-2 border-gray-300 placeholder:text-gray-400 focus:border-primary-light focus:ring-0"
+        class="w-full resize-none rounded-lg border-2 border-bg-secondary bg-bg placeholder:text-gray-400 focus:border-primary-light focus:ring-0"
       ></textarea>
       <button
         @click="sendFeedback()"
