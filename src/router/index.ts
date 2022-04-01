@@ -1,11 +1,13 @@
 import { RouteRecordRaw, createRouter, createWebHistory } from "vue-router";
 import Home from "@/views/Home.vue";
 
+import loginMiddleware from "./login";
+
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "Home",
-    redirect: "/week",
+    component: Home,
   },
   {
     path: "/week",
@@ -40,5 +42,7 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: routes,
 });
+
+router.beforeEach(loginMiddleware);
 
 export default router;

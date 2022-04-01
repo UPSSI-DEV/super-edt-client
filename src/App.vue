@@ -18,15 +18,23 @@
       <component :is="Component" />
     </keep-alive>
   </router-view>
-  <NavBar />
+  <NavBar v-if="showNav" />
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import NavBar from "@/components/nav/NabBar.vue";
 
+import hiddenNavRoutes from "@/router/hiddenNavRoutes";
+
 export default defineComponent({
   components: { NavBar },
+
+  computed: {
+    showNav() {
+      return !hiddenNavRoutes.includes(this.$route.path);
+    },
+  },
 });
 </script>
 
