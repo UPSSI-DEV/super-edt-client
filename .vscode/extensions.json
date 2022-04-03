@@ -1,6 +1,8 @@
 {
-    "recommendations": [
-        "esbenp.prettier-vscode",
-        "octref.vetur"
-    ]
+  "recommendations": [
+    "johnsoncodehk.volar", 
+    "bradlc.vscode-tailwindcss",
+    "esbenp.prettier-vscode",
+    "stylelint.vscode-stylelint"
+  ]
 }

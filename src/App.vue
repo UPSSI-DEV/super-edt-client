@@ -1,83 +1,62 @@
 <template>
-    <div id="main">
-        <super-nav-bar></super-nav-bar>
-        <div class="main-content">
-            <router-view :data="events" :key="rerender"></router-view>
-        </div>
-    </div>
+  <div
+    class="m-3 mb-5 hidden items-center gap-3 rounded-md bg-red-500 p-3 font-bold text-white lg:flex"
+  >
+    <VueFeather type="alert-triangle" />
+    <h1>
+      <b>SuperEDT</b> n'est pas actuellement prévu pour ordinateur. Favorisez la
+      vue mobile
+    </h1>
+  </div>
+
+  <router-view
+    id="router"
+    class="relative overflow-y-scroll px-5 pb-0 pt-5"
+    v-slot="{ Component }"
+  >
+    <keep-alive>
+      <component :is="Component" />
+    </keep-alive>
+  </router-view>
+  <NavBar v-if="showNav" />
 </template>
 
-<script>
-import SuperNavBar from "@/components/SuperNavBar.vue";
+<script lang="ts">
+import { defineComponent } from "vue";
+import NavBar from "@/components/nav/NabBar.vue";
 
-export default {
-    name: "App",
-    components: { SuperNavBar },
+import hiddenNavRoutes from "@/router/hiddenNavRoutes";
 
-    data() {
-        return {
-            api_url: this.$env("API_ROOT"),
-            rerender: false,
-            events: {} //require('./static/events.json')
-        };
+export default defineComponent({
+  components: { NavBar },
+
+  computed: {
+    showNav() {
+      return !hiddenNavRoutes.includes(this.$route.path);
     },
-
-    created() {
-        // Very trashy item filtering to remove dayLong events. MUST BE CHANGED !!!
-        fetch(this.api_url + "/events/week")
-            .then(x => x.json())
-            .then(res => {
-                const resIndexes = Object.keys(res);
-                for (const i of resIndexes) {
-                    const subKeys = Object.keys(res[i]);
-                    for (const j of subKeys) {
-                        res[i][j] = res[i][j].filter(x => {
-                            const ts = t => new Date(t).toDateString();
-                            return !ts(x.start).localeCompare(ts(x.end));
-                        });
-                    }
-                }
-
-                this.events = res;
-                this.rerender = true;
-            });
-    }
-};
+  },
+});
 </script>
 
 <style>
-@import "./static/theme/theme.css";
-
-html {
-    height: 100%;
+html,
+body,
+#app {
+  @apply relative m-0 h-full bg-bg;
 }
 
 body {
-    margin: 0;
-    width: 100vw;
-    min-height: 100%;
-    overflow-x: hidden;
-
-    /*display: grid;
-  place-items: center;*/
+  @apply bg-bg text-text;
 }
 
-#main {
-    max-width: 100vw;
-    min-height: 100vh;
-
-    display: grid;
-    grid-template-rows: auto 1fr;
+#app {
+  display: grid;
+  grid-template-rows: 1fr auto;
 }
 
-.main-content {
-    padding: var(--space-2);
-    box-sizing: border-box;
-
-    width: 100vw;
-    height: 100%;
-
-    display: grid;
-    place-items: center;
+@media (min-width: 1024px) {
+  #app {
+    grid-template-rows: auto 1fr auto;
+  }
 }
 </style>
