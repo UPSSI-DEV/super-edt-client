@@ -5,23 +5,21 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --primary: #4c956c;
+    --primary-light: #84b79a;
+    --primary-dark: #2c6e49;
+  }
+
   :root[theme="light"] {
     --text-primary: #000;
     --bg-primary: #fff;
     --bg-secondary: theme("colors.gray.200");
-
-    --primary: #f79d65;
-    --primary-light: #f7b267;
-    --primary-dark: #f4845f;
   }
 
   :root[theme="dark"] {
     --text-primary: #fff;
     --bg-primary: #222;
     --bg-secondary: theme("colors.gray.500");
-
-    --primary: #4c956c;
-    --primary-light: #84b79a;
-    --primary-dark: #2c6e49;
   }
 }

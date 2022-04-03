@@ -28,7 +28,6 @@ import { currentClass } from "@/stores/app-state";
 
 let classes = ref([] as string[]);
 async function loadClasses() {
-  console.log("ping");
   classes.value = await getClasses();
 }
 
