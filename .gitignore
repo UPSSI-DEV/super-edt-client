@@ -25,4 +25,6 @@ dist-ssr
 *.sw?
 
 # Credentials
+.env
+.env.*
 *.secret.json
