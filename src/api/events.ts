@@ -1,9 +1,10 @@
+import { computedEager } from "@vueuse/core";
 import supabase from "./supabase";
 
 // Exports
 
 export { getWeek, getNextLesson, getExams };
-export { Day, CalEvent };
+export { Day, CalEvent, EventType };
 
 // Functions
 
@@ -35,19 +36,10 @@ async function getExams(calendars: string[]): Promise<Day[]> {
   const { data, error } = await supabase
     .from<SupabaseEvent>("Events")
     .select("*")
+    .eq("type", "exam")
     .in("origin", calendars)
     .gte("end_time", new Date().toUTCString())
-    .like("summary", "%**EXAMEN**%")
     .neq("summary", "**EXAMEN** 1/3 TEMPS");
-
-  // const session2 = await supabase
-  //   .from<SupabaseEvent>("Events")
-  //   .select("*")
-  //   .like("summary", "%Session 2%");
-
-  // if (!session2.error) {
-  //   console.log(formatEvents(session2.data));
-  // }
   return error ? [] : partition(formatEvents(data));
 }
 
@@ -69,13 +61,14 @@ function formatEvents(events: SupabaseEvent[]): CalEvent[] {
   return events
     .map((evt) => ({
       name: evt.summary,
-      type: "tp",
+      type: evt.type,
       time: {
         start: new Date(evt.start_time),
         end: new Date(evt.end_time),
       },
-      room: "U3 salle 2",
-      teacher: "Julian the GOAT",
+      code: evt.code,
+      room: evt.room ?? "Hors salle",
+      teacher: evt.teacher ?? "Julian le bébou",
     }))
     .filter((evt) => ![0, 6].includes(evt.time.start.getDay())); // Remove all events that occur on a week-end
 }
@@ -105,13 +98,14 @@ interface DayHashMap {
 
 interface CalEvent {
   name: string;
-  type: string;
+  type: EventType;
   time: {
     start: Date;
     end: Date;
   };
   room: string;
   teacher: string;
+  code: string | null;
 }
 
 interface SupabaseEvent {
@@ -119,4 +113,12 @@ interface SupabaseEvent {
   start_time: string;
   end_time: string;
   origin: string;
+
+  type: EventType;
+  code: string | null;
+
+  teacher: string | null;
+  room: string | null;
 }
+
+type EventType = "cm" | "td" | "tp" | "exam" | "other";

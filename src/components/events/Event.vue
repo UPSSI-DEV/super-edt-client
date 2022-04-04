@@ -5,26 +5,30 @@
     @click="setCurrent()"
   >
     <h3>{{ event.name }}</h3>
-    <Detail icon="clock" :desc="time" /><!--:class="{ 'mt-2': showDetails }"-->
-    <div v-show="false">
-      <Detail icon="map-pin" :desc="event.room" />
-      <Detail icon="user" :desc="event.teacher" />
+    <Detail icon="clock" :desc="time" :class="{ 'mt-2': showDetails }" />
+    <div v-show="showDetails">
+      <Detail icon="hash" :desc="event.code ?? 'No code'" />
+      <!--Detail icon="map-pin" :desc="event.room" />
+      <Detail icon="user" :desc="event.teacher" /-->
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { CalEvent } from "@/api";
+import { CalEvent, EventType } from "@/api";
 import Detail from "../Detail.vue";
 import { v4 as unique_id } from "uuid";
 
 import eventStore from "@/stores/event";
-import { formatTime } from "@/tools/functions";
+import { formatTime, Map } from "@/tools";
 
-type IHash = {
-  [details: string]: string;
-};
+const backgrounds = new Map<EventType, string>();
+backgrounds.set("cm", "bg-primary");
+backgrounds.set("td", "bg-primary");
+backgrounds.set("tp", "bg-primary-dark");
+backgrounds.set("exam", "bg-primary-dark");
+backgrounds.set("other", "bg-primary-light");
 
 export default defineComponent({
   components: { Detail },
@@ -59,15 +63,7 @@ export default defineComponent({
     },
 
     background(): string {
-      const colorClasses: IHash = {
-        other: "bg-primary-light",
-        cm: "bg-primary",
-        td: "bg-primary",
-        tp: "bg-primary-dark",
-      };
-      const bgClass = colorClasses[this.event.type];
-
-      return bgClass;
+      return backgrounds.get(this.event.type);
     },
   },
 });
