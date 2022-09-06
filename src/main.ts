@@ -7,6 +7,8 @@ import { createPinia } from "pinia";
 import VueFeather from "vue-feather";
 import "./assets/theme.css";
 
+import "./tools/date";
+
 import { useRegisterSW } from "virtual:pwa-register/vue";
 
 // pwa registration

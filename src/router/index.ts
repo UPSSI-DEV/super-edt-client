@@ -29,6 +29,11 @@ const routes: Array<RouteRecordRaw> = [
     name: "Settings",
     component: () => import("@/views/Settings.vue"),
   },
+  {
+    path: "/feedback",
+    name: "Feedback",
+    component: () => import("@/views/Feedback.vue"),
+  },
 
   /* 404 page */
   {

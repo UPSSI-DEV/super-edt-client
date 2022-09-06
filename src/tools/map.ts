@@ -22,6 +22,10 @@ export default class Map<K, V> {
     return this.values[index];
   }
 
+  public isKey(key: K): boolean {
+    return this.keys.includes(key);
+  }
+
   public keySet(): K[] {
     return this.keys;
   }
