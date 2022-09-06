@@ -28,3 +28,13 @@ dist-ssr
 .env
 .env.*
 *.secret.json
+
+# Nuxt stuff
+node_modules
+*.log*
+.nuxt
+.nitro
+.cache
+.output
+.env
+dist

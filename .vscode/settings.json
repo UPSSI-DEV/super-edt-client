@@ -15,6 +15,7 @@
     "stylelint.config.js": true,
     "postcss.config.js": true,
 
-    "tsconfig.*": true
+    "tsconfig.*": true,
+    ".nuxt/": true
   }
 }

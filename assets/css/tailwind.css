@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --black: #222222;
+    --white: #ffffff;
+    --gray: #333333;
+
+    --primary: #4c956c;
+    --primary-dark: #2c6e49;
+    --primary-light: #84b79a;
+  }
+
+  html,
+  body,
+  #__nuxt {
+    @apply h-full;
+  }
+
+  html {
+    @apply font-sans bg-black text-white;
+  }
+}

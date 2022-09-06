@@ -1,31 +1,26 @@
-const getThemeColor = (variable) => `var(--${variable})`;
+const defaultTheme = require("tailwindcss/defaultTheme");
+const css = (name) => `var(--${name})`;
 
 module.exports = {
-  content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
-
+  content: ["./src/**/*.{html,js}"],
   theme: {
     extend: {
-      /* Custom colors */
-      colors: {
-        bg: {
-          DEFAULT: getThemeColor("bg-primary"),
-          secondary: getThemeColor("bg-secondary"),
-        },
-        text: getThemeColor("text-primary"),
-
-        primary: {
-          DEFAULT: getThemeColor("primary"),
-          light: getThemeColor("primary-light"),
-          dark: getThemeColor("primary-dark"),
-        },
+      fontFamily: {
+        sans: ["Inter", ...defaultTheme.fontFamily.sans],
       },
 
-      /* Custom fonts */
-      fontFamily: {
-        sans: ["Mukta", "sans-serif"],
+      colors: {
+        white: css("white"),
+        black: css("black"),
+        gray: css("gray"),
+
+        primary: {
+          DEFAULT: css("primary"),
+          light: css("primary-light"),
+          dark: css("primary-dark"),
+        },
       },
     },
   },
-
-  plugins: [require("@tailwindcss/forms")],
+  plugins: [],
 };
