@@ -22,6 +22,34 @@
   }
 
   html {
-    @apply font-sans bg-black text-white;
+    @apply bg-black font-sans text-white;
+  }
+
+  .card {
+    @apply flex gap-4 rounded-lg bg-gray p-4;
+  }
+
+  h3 {
+    @apply text-lg font-semibold;
+  }
+
+  /* Inputs */
+  .button {
+    @apply flex cursor-pointer items-center justify-center gap-4 rounded-lg bg-primary p-4 text-white hover:bg-primary-light;
+  }
+
+  input,
+  .input {
+    @apply rounded-lg border-2 border-primary p-4 focus-within:border-primary-light;
+  }
+
+  input {
+    @apply appearance-none bg-transparent placeholder:text-white placeholder:opacity-50 focus:outline-none;
+    -moz-appearance: textfield;
+  }
+
+  input::-webkit-inner-spin-button,
+  input::-webkit-outer-spin-button {
+    @apply appearance-none opacity-0;
   }
 }
