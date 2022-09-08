@@ -8,7 +8,7 @@
     <div class="text-base text-primary">Dernière notes</div>
     <Mark />
     <div class="flex w-full rounded border border-primary"></div>
-    <Mark v-for="i in new Array(5)" />
+    <Mark v-for="i in new Array(9)" />
   </nuxt-layout>
 </template>
 

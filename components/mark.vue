@@ -1,12 +1,20 @@
 <template>
-  <div class="card" @click="hide">
-    Anglais - Présentation
-    <div class="mark">
-      <div class="your_mark">15</div>
-      /20
+  <div class="card flex-col" @click="hide">
+    <div class="flex justify-between">
+      Anglais - Présentation
+      <div class="flex justify-between" id="mark">
+        <div class="text-primary">15.25</div>
+        /20
+      </div>
     </div>
-    {{ isHidden }}
-    <div v-if="isHidden"></div>
+    <div v-if="isHidden">
+      <div class="mb-4 w-full rounded border border-white opacity-50"></div>
+      <div class="flex justify-between gap-3 opacity-50">
+        <div class="text-xs">min : 8.25</div>
+        <div class="text-xs">moy : 10.25</div>
+        <div class="text-xs">max : 15.25</div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -21,17 +29,4 @@ function hide() {
 }
 </script>
 
-<style scoped>
-.card {
-  justify-content: space-between;
-}
-
-.mark {
-  display: flex;
-  justify-content: space-between;
-}
-
-.your_mark {
-  color: var(--primary);
-}
-</style>
+<style scoped></style>
