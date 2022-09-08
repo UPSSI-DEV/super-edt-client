@@ -19,6 +19,8 @@ module.exports = {
           light: css("primary-light"),
           dark: css("primary-dark"),
         },
+
+        error: css("error"),
       },
     },
   },

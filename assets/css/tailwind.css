@@ -13,6 +13,8 @@
     --primary: #4c956c;
     --primary-dark: #2c6e49;
     --primary-light: #84b79a;
+
+    --error: #ff6767;
   }
 
   html,
@@ -31,6 +33,14 @@
 
   h3 {
     @apply text-lg font-semibold;
+  }
+
+  .line {
+    @apply rounded-full border border-primary;
+  }
+
+  .skeleton-text {
+    @apply rounded-md bg-white;
   }
 
   /* Inputs */
