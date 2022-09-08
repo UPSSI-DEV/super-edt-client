@@ -10,14 +10,14 @@
     </div>
 
     <div v-show="showDetails">
-      <div class="info mb-2">
+      <div class="info mb-2 opacity-50">
         <vue-feather type="map-pin" size="16" />
         <p>{{ exam.room }}</p>
       </div>
 
       <div class="info">
-        <vue-feather type="external-link" size="16" />
-        <p class="text-primary">Voir module</p>
+        <vue-feather type="external-link" size="16" class="opacity-50" />
+        <p class="text-primary-light">Voir module</p>
       </div>
     </div>
   </div>
@@ -37,6 +37,6 @@ const time = computed(() => dayjs(props.exam?.time).format("hh:mm"));
 
 <style scoped>
 .info {
-  @apply flex items-center gap-2 text-xs opacity-50;
+  @apply flex items-center gap-2 text-xs;
 }
 </style>
