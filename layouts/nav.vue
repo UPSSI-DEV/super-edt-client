@@ -17,7 +17,9 @@
 
     <!-- Content -->
     <div class="flex flex-grow flex-col gap-4 overflow-y-scroll p-4">
+      <!-- <transition-group name="fade" mode="out-in"> -->
       <slot />
+      <!-- </transition-group> -->
     </div>
 
     <!-- Footer -->

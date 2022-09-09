@@ -9,17 +9,19 @@
       <span>{{ exam.subject }}</span>
     </div>
 
-    <div v-show="showDetails">
-      <div class="info mb-2 opacity-50">
-        <vue-feather type="map-pin" size="16" />
-        <p>{{ exam.room }}</p>
-      </div>
+    <transition name="appear-down">
+      <div v-show="showDetails">
+        <div class="info mb-2 opacity-50">
+          <vue-feather type="map-pin" size="16" />
+          <p>{{ exam.room }}</p>
+        </div>
 
-      <div class="info">
-        <vue-feather type="external-link" size="16" class="opacity-50" />
-        <p class="text-primary-light">Voir module</p>
+        <div class="info">
+          <vue-feather type="external-link" size="16" class="opacity-50" />
+          <p class="text-primary-light">Voir module</p>
+        </div>
       </div>
-    </div>
+    </transition>
   </div>
 </template>
 
@@ -38,5 +40,13 @@ const time = computed(() => dayjs(props.exam?.time).format("hh:mm"));
 <style scoped>
 .info {
   @apply flex items-center gap-2 text-xs;
+}
+
+.appear-down-enter-active {
+  animation: appear-down 300ms ease-out;
+}
+
+.appear-down-leave-active {
+  animation: appear-down 200ms ease-out reverse;
 }
 </style>

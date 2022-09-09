@@ -7,14 +7,16 @@
         <span>/20</span>
       </p>
     </div>
-    <div v-show="showDetails">
-      <div class="mb-4 w-full rounded border border-white opacity-50"></div>
-      <div class="flex justify-between gap-3 text-xs opacity-50">
-        <p>min : 8.25</p>
-        <p>moy : 10.25</p>
-        <p>max : 15.25</p>
+    <transition name="appear-down">
+      <div v-show="showDetails">
+        <div class="mb-4 w-full rounded border border-white opacity-50"></div>
+        <div class="flex justify-between gap-3 text-xs opacity-50">
+          <p>min : 8.25</p>
+          <p>moy : 10.25</p>
+          <p>max : 15.25</p>
+        </div>
       </div>
-    </div>
+    </transition>
   </div>
 </template>
 
@@ -28,4 +30,12 @@ function hide() {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.appear-down-enter-active {
+  animation: appear-down 300ms ease-out;
+}
+
+.appear-down-leave-active {
+  animation: appear-down 200ms ease-out reverse;
+}
+</style>
