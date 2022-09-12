@@ -6,11 +6,7 @@
     </div> -->
 
     <div class="flex">
-      <h3
-        class="flex w-2/4 place-content-center pb-4"
-        id="nav1"
-        Notes
-      </h3>
+      <h3 class="flex w-2/4 place-content-center pb-4" id="nav1">Notes</h3>
       <h3
         class="flex w-2/4 place-content-center border-b-2 border-primary pb-4 text-primary"
         id="nav2"
