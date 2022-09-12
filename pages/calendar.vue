@@ -2,7 +2,12 @@
   <nuxt-layout name="nav">
     <div v-for="day in days" class="flex flex-col gap-4">
       <h3>{{ day_date(day) }}</h3>
-      <Event v-for="i in new Array(rand())" :event="event" />
+
+      <div v-for="i in new Array(rand())">
+        <nuxt-link to="/module-details">
+          <Event :event="event" />
+        </nuxt-link>
+      </div>
     </div>
 
     <!-- <template #fallback>
