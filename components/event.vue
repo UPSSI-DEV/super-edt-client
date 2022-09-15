@@ -1,4 +1,5 @@
 <template>
+  <!-- NORMAL BEHAVIOUR -->
   <nuxt-link v-if="event" to="/calendar-details" class="card flex-col gap-3">
     <div class="flex items-center gap-2">
       <div class="h-5 w-5 rounded-sm bg-black"></div>
@@ -16,6 +17,7 @@
     </div>
   </nuxt-link>
 
+  <!-- SKELETON VIEW -->
   <div v-else class="card flex-col gap-3">
     <div class="flex items-center gap-2">
       <div class="h-5 w-5 rounded-sm bg-white opacity-50"></div>
@@ -29,7 +31,7 @@
 
 <script setup lang="ts">
 import VueFeather from "vue-feather";
-import { T_Event } from "@/types";
+import { Event as T_Event } from "@/types";
 import dayjs from "dayjs";
 
 // Props definition

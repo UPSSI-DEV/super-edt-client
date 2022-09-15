@@ -1,5 +1,5 @@
-type T_Event = {
-  lesson_type: T_EventType;
+type Event = {
+  lesson_type: EventType;
   name: string;
   times: {
     start: Date;
@@ -8,18 +8,17 @@ type T_Event = {
   room: string;
 };
 
-enum T_EventType {
-  CM,
-  TD,
-  TP,
-  EXAMEN,
-  AUTRE,
-}
+type EventType = "cm" | "td" | "tp" | "exam" | "other";
 
-type T_UpcomingExam = {
+type UpcomingExam = {
   subject: string;
   time: Date;
   room: string;
 };
 
-export { T_Event, T_EventType, T_UpcomingExam };
+type Module = {
+  name: string;
+  total_progress: number;
+};
+
+export { Module, Event, EventType, UpcomingExam };

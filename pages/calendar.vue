@@ -19,7 +19,7 @@
 
 <script setup lang="ts">
 import dayjs from "dayjs";
-import { T_Event, T_EventType } from "~~/types";
+import { Event as T_Event } from "~~/types";
 
 const day_date = (day: Date) => {
   const diff = day.getDate() - new Date().getDate();
@@ -37,7 +37,7 @@ const days = new Array(5)
   .map((v, i) => v.add(i, "days").toDate());
 
 const event: T_Event = {
-  lesson_type: T_EventType.TD,
+  lesson_type: "td",
   name: "Communication des systèmes",
   times: {
     start: new Date(),
