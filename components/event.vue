@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link v-if="event" to="#help" class="card flex-col gap-3">
+  <nuxt-link v-if="event" to="/calendar-details" class="card flex-col gap-3">
     <div class="flex items-center gap-2">
       <div class="h-5 w-5 rounded-sm bg-black"></div>
       <p>{{ event.name }}</p>

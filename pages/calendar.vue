@@ -4,9 +4,7 @@
       <h3>{{ day_date(day) }}</h3>
 
       <div v-for="i in new Array(rand())">
-        <nuxt-link to="/module-details">
-          <Event :event="event" />
-        </nuxt-link>
+        <Event :event="event" />
       </div>
     </div>
 
