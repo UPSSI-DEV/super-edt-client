@@ -21,4 +21,12 @@ type Module = {
   total_progress: number;
 };
 
-export { Module, Event, EventType, UpcomingExam };
+type Mark = {
+  name: string;
+  mark: number;
+  min: number;
+  avg: number;
+  max: number;
+};
+
+export { Mark, Module, Event, EventType, UpcomingExam };

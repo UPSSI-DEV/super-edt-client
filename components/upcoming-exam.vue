@@ -23,6 +23,15 @@
       </div>
     </transition>
   </div>
+
+  <!-- SKELETON VIEW -->
+  <div v-else class="card flex-col gap-2">
+    <div class="flex items-center gap-2">
+      <span class="info skeleton-text h-6 w-12 opacity-50">h</span>
+
+      <span class="info skeleton-text h-6 w-40 opacity-50">h</span>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
