@@ -26,7 +26,10 @@
   html {
     @apply bg-black font-sans text-white;
   }
+}
 
+@layer components {
+  /**/
   .card {
     @apply flex gap-4 rounded-lg bg-gray p-4;
   }
@@ -42,6 +45,7 @@
   .skeleton-text {
     @apply rounded-md bg-white;
   }
+  /**/
 
   /* Inputs */
   .button {
@@ -61,17 +65,5 @@
   input::-webkit-inner-spin-button,
   input::-webkit-outer-spin-button {
     @apply appearance-none opacity-0;
-  }
-
-  /* ANIMATIONS */
-
-  @keyframes appear-down {
-    0% {
-      @apply max-h-0 opacity-0;
-    }
-
-    100% {
-      @apply max-h-28 opacity-100;
-    }
   }
 }

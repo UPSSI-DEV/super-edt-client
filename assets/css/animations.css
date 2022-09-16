@@ -1,0 +1,27 @@
+:root {
+  --anim-appear-down: appear-down 300ms ease-out;
+  --anim-disappear-up: appear-down 200ms ease-out reverse;
+
+  --anim-slide-up: slide-up 200ms ease-out;
+  --anim-slide-down: slide-up 300ms ease-out reverse;
+}
+
+@keyframes appear-down {
+  0% {
+    @apply max-h-0 opacity-0;
+  }
+
+  100% {
+    @apply max-h-28 opacity-100;
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    @apply top-full opacity-0;
+  }
+
+  100% {
+    @apply top-0 opacity-100;
+  }
+}

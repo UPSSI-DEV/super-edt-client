@@ -52,10 +52,10 @@ const time = computed(() => dayjs(props.exam?.time).format("hh:mm"));
 }
 
 .appear-down-enter-active {
-  animation: appear-down 300ms ease-out;
+  animation: var(--anim-appear-down);
 }
 
 .appear-down-leave-active {
-  animation: appear-down 200ms ease-out reverse;
+  animation: var(--anim-disappear-up);
 }
 </style>

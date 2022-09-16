@@ -28,13 +28,13 @@
 
     <!-- REPORT CONTENT -->
     <div class="col" v-show="isActive('report')">
-      <section class="flex justify-between">
-        <div class="grow pr-4">
-          <div class="input flex items-center justify-between">
-            <p>Semestre 5</p>
-            <vue-feather type="chevron-down"></vue-feather>
-          </div>
-        </div>
+      <section class="flex justify-between gap-4">
+        <Select
+          class="flex-grow"
+          :options="select_options"
+          v-model="selected_semester"
+          @update:model-value="ping()"
+        />
 
         <div
           class="grid aspect-square place-items-center rounded-lg bg-primary p-4 text-lg"
@@ -82,7 +82,18 @@ import VueFeather from "vue-feather";
 import { Mark as T_Mark } from "@/types";
 
 type NavOptions = "marks" | "report";
-const active = ref<NavOptions>("marks");
+const active = ref<NavOptions>("report");
+
+const setActive = (item: NavOptions) => (active.value = item);
+const isActive = (item: NavOptions) => active.value == item;
+
+const selected_semester = ref("");
+const select_options = {
+  "Semestre 5": "5",
+  "Semestre 6": "6",
+};
+
+const ping = () => console.log(selected_semester.value);
 
 const mark_list: T_Mark[] = [
   {
@@ -121,9 +132,6 @@ const mark_list: T_Mark[] = [
     max: 13,
   },
 ];
-
-const setActive = (item: NavOptions) => (active.value = item);
-const isActive = (item: NavOptions) => active.value == item;
 </script>
 
 <style scoped>
