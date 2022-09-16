@@ -48,5 +48,3 @@ const links = {
 
 const isRouteActive = (id: string) => useRoute().path.includes(id);
 </script>
-
-<style scoped></style>

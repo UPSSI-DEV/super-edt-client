@@ -45,13 +45,3 @@ function hide() {
   showDetails.value = !showDetails.value;
 }
 </script>
-
-<style scoped>
-.appear-down-enter-active {
-  animation: var(--anim-appear-down);
-}
-
-.appear-down-leave-active {
-  animation: var(--anim-disappear-up);
-}
-</style>

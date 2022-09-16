@@ -50,12 +50,4 @@ const time = computed(() => dayjs(props.exam?.time).format("hh:mm"));
 .info {
   @apply flex items-center gap-2 text-xs;
 }
-
-.appear-down-enter-active {
-  animation: var(--anim-appear-down);
-}
-
-.appear-down-leave-active {
-  animation: var(--anim-disappear-up);
-}
 </style>

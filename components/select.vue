@@ -24,7 +24,7 @@
         >
           <div
             v-for="[name, value] in Object.entries(options)"
-            class="group:bg-gray z-50 cursor-pointer border-b-2 border-primary bg-black p-4 last:border-0"
+            class="group:bg-gray z-50 cursor-pointer border-b-2 border-primary bg-black p-4 last:border-0 hover:bg-gray active:bg-gray"
             @click="changeValue(name)"
           >
             {{ name }}
@@ -59,13 +59,3 @@ const changeValue = (key: string) => {
 
 const showDropdown = ref(false);
 </script>
-
-<style scoped>
-.appear-down-enter-active {
-  animation: var(--anim-appear-down);
-}
-
-.appear-down-leave-active {
-  animation: var(--anim-disappear-up);
-}
-</style>

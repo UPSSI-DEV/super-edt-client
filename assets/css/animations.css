@@ -1,9 +1,13 @@
-:root {
-  --anim-appear-down: appear-down 300ms ease-out;
-  --anim-disappear-up: appear-down 200ms ease-out reverse;
+/* APPEAR DOWN
+ * element will grow down from the top center with opacity change
+ */
 
-  --anim-slide-up: slide-up 200ms ease-out;
-  --anim-slide-down: slide-up 300ms ease-out reverse;
+.appear-down-enter-active {
+  animation: appear-down 300ms ease-out;
+}
+
+.appear-down-leave-active {
+  animation: appear-down 200ms ease-out reverse;
 }
 
 @keyframes appear-down {
@@ -14,6 +18,15 @@
   100% {
     @apply max-h-28 opacity-100;
   }
+}
+
+/* SLIDE UP
+ * element will come rising out from the bottom of the screen with opacity change
+ */
+
+:root {
+  --anim-slide-up: slide-up 200ms ease-out;
+  --anim-slide-down: slide-up 300ms ease-out reverse;
 }
 
 @keyframes slide-up {
