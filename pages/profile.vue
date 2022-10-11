@@ -44,17 +44,19 @@
         <vue-feather :type="show_img" />
       </div>
 
-      <div v-show="show_danger" class="list">
-        <div class="card">
-          <vue-feather type="log-out" />
-          <p>Se déconnecter</p>
-        </div>
+      <transition name="appear-down">
+        <div v-show="show_danger" class="list">
+          <div class="card">
+            <vue-feather type="log-out" />
+            <p>Se déconnecter</p>
+          </div>
 
-        <div class="card border-2 border-error">
-          <vue-feather type="trash-2" />
-          <p>Supprimer le compte</p>
+          <div class="card border-2 border-error">
+            <vue-feather type="trash-2" />
+            <p>Supprimer le compte</p>
+          </div>
         </div>
-      </div>
+      </transition>
     </section>
   </nuxt-layout>
 </template>

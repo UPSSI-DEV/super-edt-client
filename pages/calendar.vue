@@ -19,7 +19,7 @@
 
 <script setup lang="ts">
 import dayjs from "dayjs";
-import { Event as T_Event } from "~~/types";
+import { Event as T_Event } from "~/types";
 
 const day_date = (day: Date) => {
   const diff = day.getDate() - new Date().getDate();

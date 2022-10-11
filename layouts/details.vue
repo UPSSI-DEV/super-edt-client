@@ -16,10 +16,30 @@
 <script setup lang="ts">
 import VueFeather from "vue-feather";
 const props = defineProps<{ title: string }>();
+
+definePageMeta({
+  pageTransition: {
+    name: "slide-up",
+    duration: 2000,
+  },
+});
 </script>
 
 <style scoped>
-.page-enter-active,
+.slide-up-enter-active,
+.slide-up-leave-active {
+  @apply absolute inset-x-0;
+}
+
+.slide-up-enter-active {
+  animation: slide-up 200ms ease-out;
+}
+
+.slide-up-leave-active {
+  animation: slide-up 300ms ease-out reverse;
+}
+
+/* .page-enter-active,
 .page-leave-active {
   @apply absolute inset-x-0;
 }
@@ -30,5 +50,5 @@ const props = defineProps<{ title: string }>();
 
 .page-leave-active {
   animation: var(--anim-slide-down);
-}
+} */
 </style>
