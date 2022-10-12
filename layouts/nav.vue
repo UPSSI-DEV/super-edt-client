@@ -3,7 +3,7 @@
     <!-- Header -->
     <div class="flex items-center justify-between gap-4 p-4">
       <div class="flex items-center gap-4">
-        <img src="@/assets/images/logo.png" width="48" alt="" />
+        <img src="/images/logo.png" width="48" alt="" />
         <h1 class="text-xl font-semibold">SuperEDT</h1>
       </div>
 

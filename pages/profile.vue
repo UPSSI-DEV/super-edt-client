@@ -8,7 +8,7 @@
         <h3>{{ user.name }}</h3>
 
         <div class="mt-2 flex items-center gap-2">
-          <img :src="img(user.social.provider)" class="h-4" alt="" />
+          <img :src="img(user.social.provider)" class="h-4" />
           <p>{{ user.social.tag }}</p>
         </div>
       </div>
@@ -70,9 +70,7 @@ const show_img = computed(() =>
 );
 
 type Provider = "discord" | "google";
-
-const img = (provider: Provider) =>
-  `../assets/images/providers/${provider}.png`;
+const img = (provider: Provider) => `/images/providers/${provider}.png`;
 
 const user = {
   name: "Guillaume Roussin",
