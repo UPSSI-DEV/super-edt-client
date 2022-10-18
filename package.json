@@ -6,10 +6,11 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "docker": "docker build -t frenchfry06/super-edt ."
+    "docker": "docker build -t frenchfry06/super-edt .",
+    "deploy": "DOCKER_HOST=\"ssh://vm-bde\" docker-compose down; DOCKER_HOST=\"ssh://vm-bde\" docker-compose up -d",
+    "compose": "docker-compose down; docker-compose up -d"
   },
   "devDependencies": {
-    "@nuxt/image-edge": "^1.0.0-27719579.87dcdf2",
     "@nuxtjs/tailwindcss": "^5.3.2",
     "nuxt": "3.0.0-rc.9",
     "tailwindcss": "^3.1.8"
