@@ -30,3 +30,6 @@ type Mark = {
 };
 
 export { Mark, Module, Event, EventType, UpcomingExam };
+
+export type { Provider } from "@/composables/use-auth-providers";
+export type { User } from "@/composables/use-user";

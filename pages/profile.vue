@@ -8,8 +8,8 @@
         <h3>{{ user.name }}</h3>
 
         <div class="mt-2 flex items-center gap-2">
-          <img :src="img(user.social.provider)" class="h-4" />
-          <p>{{ user.social.tag }}</p>
+          <img :src="img(user.provider.name)" class="h-4" />
+          <p>{{ user.provider.tag }}</p>
         </div>
       </div>
     </section>
@@ -64,23 +64,15 @@
 <script setup lang="ts">
 import VueFeather from "vue-feather";
 
+const user = useUser();
+console.log(user.value);
+
+const img = (provider: string) => `/images/providers/${provider}.png`;
+
 const show_danger = ref(false);
 const show_img = computed(() =>
   show_danger.value ? "chevron-up" : "chevron-down"
 );
-
-type Provider = "discord" | "google";
-const img = (provider: Provider) => `/images/providers/${provider}.png`;
-
-const user = {
-  name: "Guillaume Roussin",
-  social: {
-    provider: "discord" as Provider,
-    tag: "FrenchFry#1234",
-  },
-  student_id: "22108939",
-  class: "SRI 1A",
-};
 </script>
 
 <style scoped>

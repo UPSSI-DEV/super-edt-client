@@ -23,6 +23,8 @@ definePageMeta({
     duration: 2000,
   },
 });
+
+const goBack = () => useRouter().back();
 </script>
 
 <style scoped>

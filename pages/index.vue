@@ -6,22 +6,27 @@
     </div>
 
     <nuxt-link
-      v-for="[name, link] in Object.entries(providers)"
-      :to="link"
+      v-for="p in providers"
+      :to="p.url"
+      @click="setProvider(p)"
       class="button w-full"
     >
-      <img :src="getProviderImg(name)" class="h-4" />
-      <p>Se connecter avec {{ name }}</p>
+      <img :src="p.icon" class="h-4" />
+      <p>Se connecter avec {{ p.name }}</p>
     </nuxt-link>
   </div>
 </template>
 
 <script setup lang="ts">
-const getProviderImg = (name: string) =>
-  `/images/providers/${name.toLowerCase()}.png`;
+import { Provider } from "~/types";
 
-const providers = {
-  Discord: "/info",
-  Google: "/info",
-};
+const providers = ref<Provider[]>();
+
+onMounted(async () => {
+  const redirect = useAuthRedirectUrl();
+  providers.value = await useAuthProviders(redirect);
+});
+
+const setProvider = (provider: Provider) =>
+  localStorage.setItem("provider", JSON.stringify(provider.original));
 </script>
